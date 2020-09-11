@@ -53,10 +53,10 @@ namespace Sistema.Negocio
             DCategoria Datos = new DCategoria();
             return Datos.Activar(Id);
         }
-        public static string Desactivar(int Id)
+        public static string Inactivar(int Id)
         {
             DCategoria Datos = new DCategoria();
-            return Datos.Desactivar(Id)
+            return Datos.Inactivar(Id);
 
         }
 

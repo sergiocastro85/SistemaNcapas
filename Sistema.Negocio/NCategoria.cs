@@ -27,19 +27,40 @@ namespace Sistema.Negocio
         public static string Insertar(string Nombre,string Descripcion)
         {
             DCategoria Datos = new DCategoria();
-            Categoria obj = new Categoria();
-            obj.Nombre = Nombre;
-            obj.Descripcion = Descripcion;
-            return Datos.Insertar(obj);
+
+            string Existe = Datos.Existe(Nombre);
+            if (Existe.Equals("1"))
+            {
+                return "la Categoría ya existe";
+            }
+            else
+            {
+                Categoria obj = new Categoria();
+                obj.Nombre = Nombre;
+                obj.Descripcion = Descripcion;
+                return Datos.Insertar(obj);
+
+            }
+
         }
         public static string Actualizar (int Id, string Nombre, string Descripcion)
         {
             DCategoria Datos = new DCategoria();
-            Categoria obj = new Categoria();
-            obj.IdCategoria = Id;
-            obj.Nombre = Nombre;
-            obj.Descripcion = Descripcion;
-            return Datos.Actualizar(obj);
+
+            string Exixte = Datos.Existe(Nombre);
+            if (Exixte == "1")
+            {
+                return "La Categoría ya existe";
+            }
+            else
+            {
+                Categoria obj = new Categoria();
+                obj.IdCategoria = Id;
+                obj.Nombre = Nombre;
+                obj.Descripcion = Descripcion;
+                return Datos.Actualizar(obj);
+
+            }
                 
         }
         public static string Eliminar(int Id)

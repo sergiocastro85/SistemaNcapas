@@ -99,6 +99,7 @@ namespace Sistema.Datos
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
+            return Rpta;
 
         }
 
@@ -230,18 +231,6 @@ namespace Sistema.Datos
             return Rpta;
         }
 
-        public string Desactivar(int Id)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion.getInstacia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("categoria_desactivar", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.Add
-            }
-        }
 
 
     }

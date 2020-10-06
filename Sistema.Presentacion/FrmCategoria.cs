@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema.Negocio;              
 
 namespace Sistema.Presentacion
 {
@@ -15,6 +16,80 @@ namespace Sistema.Presentacion
         public FrmCategoria()
         {
             InitializeComponent();
+        }
+
+        public void Listar()
+        {
+            try
+            {
+                DgvListado.DataSource = NCategoria.Listar();
+                this.Formato();
+                lblTotal.Text = "Total de Registros es: " + Convert.ToString(DgvListado.Rows.Count);
+                    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        public void Buscar()
+        {
+            try
+            {
+                DgvListado.DataSource = NCategoria.Buscar(TxtBuscar.Text);
+                this.Formato();
+                lblTotal.Text = "Total de Registros es: " + Convert.ToString(DgvListado.RowCount);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            
+
+        }
+
+        private void Formato()
+        {
+            DgvListado.Columns[0].Visible = false;
+            DgvListado.Columns[1].Visible = false;
+            DgvListado.Columns[2].Width = 150;
+            DgvListado.Columns[3].Width = 400;
+            DgvListado.Columns[3].HeaderText = "Descripción";
+        }
+
+        private void Limpiar()
+        {
+            TxtBuscar.Clear();
+            TxtNombre.Clear();
+            TxtDescripcion.Clear();
+            TxtId.Clear();
+            BtnInsertar.Visible = true;
+            ErrorIcono.Clear();
+        }
+
+        private void FrmCategoria_Load(object sender, EventArgs e)
+        {
+            this.Listar();
+
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            this.Buscar();
+
+        }
+
+        private void BtnInsertar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

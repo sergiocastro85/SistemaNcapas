@@ -36,7 +36,7 @@ namespace Sistema.Datos
                 
                 if (this.Seguridad)
                 {
-                    Cadena.ConnectionString = Cadena.ConnectionString + "Itegrated Security=SSPI";
+                    Cadena.ConnectionString = Cadena.ConnectionString + "Integrated Security=True";
                 }
                 else
                 {

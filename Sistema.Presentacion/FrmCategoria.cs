@@ -68,6 +68,16 @@ namespace Sistema.Presentacion
             ErrorIcono.Clear();
         }
 
+        private void MensaError(string Mensaje)
+        {
+            MessageBox.Show(Mensaje, "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void MensajeOK(string Mensaje)
+        {
+            MessageBox.Show(Mensaje, "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
             this.Listar();
@@ -84,12 +94,37 @@ namespace Sistema.Presentacion
         {
             try
             {
-
+                string Rpta = "";
+                if (TxtNombre.Text == string.Empty)
+                {
+                    this.MensaError("Falta ingresar algunos datos , seran remarcados .");
+                    ErrorIcono.SetError(TxtNombre, "Ingrese el Nombre");
+                }
+                else
+                {
+                    Rpta = NCategoria.Insertar(TxtNombre.Text.Trim(), TxtDescripcion.Text.Trim());
+                    if (Rpta.Equals("OK"))
+                    {
+                        this.MensajeOK("Se inserto de forma correcta el registro");
+                        this.Limpiar();
+                        this.Listar();
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+                }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
+            tabGeneral.SelectedIndex = 0;
         }
     }
 }

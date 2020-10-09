@@ -24,6 +24,7 @@ namespace Sistema.Presentacion
             {
                 DgvListado.DataSource = NCategoria.Listar();
                 this.Formato();
+                this.Limpiar();
                 lblTotal.Text = "Total de Registros es: " + Convert.ToString(DgvListado.Rows.Count);
                     
             }
@@ -65,6 +66,7 @@ namespace Sistema.Presentacion
             TxtDescripcion.Clear();
             TxtId.Clear();
             BtnInsertar.Visible = true;
+            BtnActualizar.Visible = false; //ocultar el boton de actualizar
             ErrorIcono.Clear();
         }
 
@@ -125,6 +127,50 @@ namespace Sistema.Presentacion
         {
             this.Limpiar();
             tabGeneral.SelectedIndex = 0;
+        }
+
+        private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Limpiar(); //se llama al metodo limpiar antes de hacer el proceso
+            BtnActualizar.Visible = true;//hacer visible el boton de actulizar
+            BtnInsertar.Visible = false; //ocultar el boton de insertar
+            TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+            TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+            TxtDescripcion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Descripcion"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+            tabGeneral.SelectedIndex = 1; //pasar de manera automatica a la pagina para editar el registro
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                if (TxtNombre.Text==string.Empty || TxtId.Text == string.Empty) // si los campos de texto estan vacios marcar error
+                {
+                    this.MensaError("Falta ingresar algunos campos, se remarcaran");
+                    ErrorIcono.SetError(TxtNombre, "Ingrese Nombre");
+                }
+                else
+                {
+                    Rpta = NCategoria.Actualizar(Convert.ToInt32(TxtId.Text), TxtNombre.Text.Trim(), TxtDescripcion.Text.Trim());
+                    if (Rpta.Equals("OK")) // si me regrega un OK, se muestra el mensaje que el resgitro se guardo correctamente
+                    {
+                        this.MensajeOK("Se actulizo el registro correctamente");
+                        this.Limpiar();
+                        this.Listar();
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

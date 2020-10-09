@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnActualizar = new System.Windows.Forms.Button();
             this.tabGeneral.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
@@ -114,8 +115,10 @@
             this.DgvListado.Location = new System.Drawing.Point(6, 53);
             this.DgvListado.Name = "DgvListado";
             this.DgvListado.ReadOnly = true;
+            this.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListado.Size = new System.Drawing.Size(778, 312);
             this.DgvListado.TabIndex = 0;
+            this.DgvListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellDoubleClick);
             // 
             // Seleccionar
             // 
@@ -125,6 +128,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnActualizar);
             this.tabPage2.Controls.Add(this.BtnCancelar);
             this.tabPage2.Controls.Add(this.BtnInsertar);
             this.tabPage2.Controls.Add(this.label3);
@@ -215,6 +219,16 @@
             // 
             this.ErrorIcono.ContainerControl = this;
             // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.Location = new System.Drawing.Point(179, 270);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(138, 28);
+            this.BtnActualizar.TabIndex = 8;
+            this.BtnActualizar.Text = "Actuliazar";
+            this.BtnActualizar.UseVisualStyleBackColor = true;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,5 +268,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider ErrorIcono;
+        private System.Windows.Forms.Button BtnActualizar;
     }
 }

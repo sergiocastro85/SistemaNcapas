@@ -13,6 +13,8 @@ namespace Sistema.Presentacion
 {
     public partial class FrmCategoria : Form
     {
+        private string NombreAnt;
+
         public FrmCategoria()
         {
             InitializeComponent();
@@ -135,6 +137,7 @@ namespace Sistema.Presentacion
             BtnActualizar.Visible = true;//hacer visible el boton de actulizar
             BtnInsertar.Visible = false; //ocultar el boton de insertar
             TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+            this.NombreAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
             TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
             TxtDescripcion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Descripcion"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
             tabGeneral.SelectedIndex = 1; //pasar de manera automatica a la pagina para editar el registro
@@ -152,7 +155,7 @@ namespace Sistema.Presentacion
                 }
                 else
                 {
-                    Rpta = NCategoria.Actualizar(Convert.ToInt32(TxtId.Text), TxtNombre.Text.Trim(), TxtDescripcion.Text.Trim());
+                    Rpta = NCategoria.Actualizar(Convert.ToInt32(TxtId.Text), this.NombreAnt,TxtNombre.Text.Trim(), TxtDescripcion.Text.Trim());
                     if (Rpta.Equals("OK")) // si me regrega un OK, se muestra el mensaje que el resgitro se guardo correctamente
                     {
                         this.MensajeOK("Se actulizo el registro correctamente");

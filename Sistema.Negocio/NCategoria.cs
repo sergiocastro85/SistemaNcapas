@@ -43,9 +43,27 @@ namespace Sistema.Negocio
             }
 
         }
-        public static string Actualizar (int Id, string Nombre, string Descripcion)
+        public static string Actualizar (int Id, string NombreAnt,string Nombre, string Descripcion)
         {
             DCategoria Datos = new DCategoria();
+            Categoria obj = new Categoria();
+
+            if (NombreAnt.Equals(Nombre))
+            {
+                obj.IdCategoria = Id;
+                obj.Nombre = Nombre;
+                obj.Descripcion = Descripcion;
+                return Datos.Actualizar(obj);
+
+            }
+            else
+            {
+                string Existe = Datos.Existe(Nombre);
+                if (Existe == "1")
+                {
+                    return "La Categoría ya existe";
+                }
+            }
 
             string Exixte = Datos.Existe(Nombre);
             if (Exixte == "1")
@@ -54,7 +72,6 @@ namespace Sistema.Negocio
             }
             else
             {
-                Categoria obj = new Categoria();
                 obj.IdCategoria = Id;
                 obj.Nombre = Nombre;
                 obj.Descripcion = Descripcion;

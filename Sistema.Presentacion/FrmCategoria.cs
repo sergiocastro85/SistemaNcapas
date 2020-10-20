@@ -267,5 +267,96 @@ namespace Sistema.Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void BtnActivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente deseas Activar el (los) Registro (s) ?", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string Rpta = "";
+
+                    foreach (DataGridViewRow row in DgvListado.Rows)
+                    {
+                        //si la celda actual que estoy recorriendo en la posicion 0 es true
+                        //indica que se desea Eliminar
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            //Establesco el valor que voy a eliminar y lo almaceno en la variable Codigo
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            Rpta = NCategoria.Activar(Codigo);
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOK("Se Activó el registro" + Convert.ToString(row.Cells[2].Value));
+                            }
+                            else
+                            {
+                                this.MensaError(Rpta);
+                            }
+                        }
+
+
+                    }
+                }
+                this.Listar();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+        }
+
+        private void BtnDesactivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente deseas desacrivar el (los) Registro (s) ?", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string Rpta = "";
+
+                    foreach (DataGridViewRow row in DgvListado.Rows)
+                    {
+                        //si la celda actual que estoy recorriendo en la posicion 0 es true
+                        //indica que se desea Eliminar
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            //Establesco el valor que voy a eliminar y lo almaceno en la variable Codigo
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            Rpta = NCategoria.Inactivar(Codigo);
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOK("Se desactivó el registro" + Convert.ToString(row.Cells[2].Value));
+                            }
+                            else
+                            {
+                                this.MensaError(Rpta);
+                            }
+                        }
+
+
+                    }
+                }
+                this.Listar();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }

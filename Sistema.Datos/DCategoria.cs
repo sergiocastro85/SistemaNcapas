@@ -213,7 +213,7 @@ namespace Sistema.Datos
             try 
             { 
              SqlCon = Conexion.getInstacia().CrearConexion();
-             SqlCommand Comando = new SqlCommand("categoria_inactivar", SqlCon);
+             SqlCommand Comando = new SqlCommand("categoria_desactivar", SqlCon);
              Comando.CommandType = CommandType.StoredProcedure;
              Comando.Parameters.Add("@idcategoria", SqlDbType.Int).Value = Id;
              SqlCon.Open();

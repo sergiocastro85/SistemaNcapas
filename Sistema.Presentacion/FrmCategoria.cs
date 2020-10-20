@@ -70,6 +70,13 @@ namespace Sistema.Presentacion
             BtnInsertar.Visible = true;
             BtnActualizar.Visible = false; //ocultar el boton de actualizar
             ErrorIcono.Clear();
+
+            DgvListado.Columns[0].Visible = false;
+            BtnActivar.Visible = false;
+            BtnActivar.Visible = false;
+            BtnDesactivar.Visible = false;
+            BtnEliminar.Visible = false;
+            ChkSeleccionar.Checked = false;
         }
 
         private void MensaError(string Mensaje)
@@ -133,14 +140,23 @@ namespace Sistema.Presentacion
 
         private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Limpiar(); //se llama al metodo limpiar antes de hacer el proceso
-            BtnActualizar.Visible = true;//hacer visible el boton de actulizar
-            BtnInsertar.Visible = false; //ocultar el boton de insertar
-            TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
-            this.NombreAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
-            TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
-            TxtDescripcion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Descripcion"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
-            tabGeneral.SelectedIndex = 1; //pasar de manera automatica a la pagina para editar el registro
+            try
+            {
+                this.Limpiar(); //se llama al metodo limpiar antes de hacer el proceso
+                BtnActualizar.Visible = true;//hacer visible el boton de actulizar
+                BtnInsertar.Visible = false; //ocultar el boton de insertar
+                TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+                this.NombreAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+                TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+                TxtDescripcion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Descripcion"].Value); //condo se de doble clic sobre el registro se lleve al control textbox para su edición
+                tabGeneral.SelectedIndex = 1; //pasar de manera automatica a la pagina para editar el registro
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecciones desde la celda Nombre.");
+            }
+            
+
         }
 
         private void BtnActualizar_Click(object sender, EventArgs e)
@@ -168,6 +184,82 @@ namespace Sistema.Presentacion
                     }
 
                 }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void ChkSeleccionar_CheckedChanged(object sender, EventArgs e)
+        {
+            //en el evento cheke hago visible la columna 0 de gridview y los botones
+            if (ChkSeleccionar.Checked)
+            {
+                DgvListado.Columns[0].Visible = true;
+                BtnActivar.Visible = true;
+                BtnDesactivar.Visible = true;
+                BtnEliminar.Visible = true;
+            }
+            else
+            {
+                DgvListado.Columns[0].Visible = false;
+                BtnActivar.Visible = false;
+                BtnActivar.Visible = false;
+                BtnDesactivar.Visible = false;
+                BtnEliminar.Visible = false;
+            }
+        }
+
+        private void DgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //el objeto e, sale del evento private void DgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            if (e.ColumnIndex==DgvListado.Columns["Seleccionar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)DgvListado.Rows[e.RowIndex].Cells["Seleccionar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente deseas Eliminar el (los) Registro (s) ?", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string Rpta = "";
+
+                    foreach(DataGridViewRow row in DgvListado.Rows)
+                    {
+                        //si la celda actual que estoy recorriendo en la posicion 0 es true
+                        //indica que se desea Eliminar
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            //Establesco el valor que voy a eliminar y lo almaceno en la variable Codigo
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            Rpta = NCategoria.Eliminar(Codigo);
+                            
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOK("Se eliminó el registro" + Convert.ToString(row.Cells[2].Value));
+                            }
+                            else
+                            {
+                                this.MensaError(Rpta);
+                            }
+                        }
+                  
+                                              
+                    }
+                }
+                this.Listar();
+
 
             }
             catch (Exception ex)

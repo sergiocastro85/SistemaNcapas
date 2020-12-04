@@ -20,9 +20,9 @@ namespace Sistema.Entidades
         
         public int Stock { get; set; }
         
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
         
-        public int Imagen { get; set; }
+        public string Imagen { get; set; }
 
         public Boolean Estado { get; set; }
 

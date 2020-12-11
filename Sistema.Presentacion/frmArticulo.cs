@@ -13,6 +13,11 @@ namespace Sistema.Presentacion
 {
     public partial class frmArticulo : Form
     {
+        private string RutaOrigen;
+        private string RutaDestino;
+        private string Directorio = "D:\\sistema\\";
+
+
         public frmArticulo()
         {
             InitializeComponent();
@@ -118,6 +123,23 @@ namespace Sistema.Presentacion
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             this.Buscar();
+        }
+
+        private void BtnCargarImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            //filtrar por extenciones de imagen
+            file.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.fif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            //si despues de mostrar la ventana para mostrar los archivos en resultado es un OK, entonces significa que se a seleccionado un archivo
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                //si es ok, entonces el pictire Image va ser igual a la imagen seleccionada y se obtiene el nombre del directorio con el metodo filename
+                PicImagen.Image = Image.FromFile(file.FileName);
+                //tambiémn le indico a mi caja de texto el nombre de la imagen
+                txtImagen.Text = file.FileName.Substring(file.FileName.LastIndexOf("\\")+1);
+                //le indicamos la ruta origenn
+                this.RutaOrigen = file.FileName;
+            }
         }
     }
 }

@@ -53,11 +53,16 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.CboCategoria = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.BtnCargarImagen = new System.Windows.Forms.Button();
+            this.PicImagen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
             this.tabGeneral.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // ErrorIcono
@@ -134,6 +139,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.PicImagen);
+            this.tabPage2.Controls.Add(this.BtnCargarImagen);
+            this.tabPage2.Controls.Add(this.txtImagen);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.CboCategoria);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.BtnActualizar);
@@ -291,6 +300,42 @@
             this.CboCategoria.Size = new System.Drawing.Size(288, 21);
             this.CboCategoria.TabIndex = 10;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(651, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Imagen";
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.Enabled = false;
+            this.txtImagen.Location = new System.Drawing.Point(743, 104);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(238, 20);
+            this.txtImagen.TabIndex = 12;
+            // 
+            // BtnCargarImagen
+            // 
+            this.BtnCargarImagen.Location = new System.Drawing.Point(1012, 101);
+            this.BtnCargarImagen.Name = "BtnCargarImagen";
+            this.BtnCargarImagen.Size = new System.Drawing.Size(36, 23);
+            this.BtnCargarImagen.TabIndex = 13;
+            this.BtnCargarImagen.Text = "...";
+            this.BtnCargarImagen.UseVisualStyleBackColor = true;
+            this.BtnCargarImagen.Click += new System.EventHandler(this.BtnCargarImagen_Click);
+            // 
+            // PicImagen
+            // 
+            this.PicImagen.Location = new System.Drawing.Point(743, 149);
+            this.PicImagen.Name = "PicImagen";
+            this.PicImagen.Size = new System.Drawing.Size(305, 101);
+            this.PicImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicImagen.TabIndex = 14;
+            this.PicImagen.TabStop = false;
+            // 
             // frmArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +352,7 @@
             this.tabGeneral.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -337,5 +383,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CboCategoria;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox PicImagen;
+        private System.Windows.Forms.Button BtnCargarImagen;
+        private System.Windows.Forms.TextBox txtImagen;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -73,6 +73,37 @@ namespace Sistema.Datos
 
         }
 
+        public DataTable Seleccionar()
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection Sqlcon = new SqlConnection();
+
+            try
+            {
+                Sqlcon = Conexion.getInstacia().CrearConexion();
+                SqlCommand Comando = new SqlCommand("categoria_seleccionar", Sqlcon);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Sqlcon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Sqlcon.State == ConnectionState.Open)
+                    Sqlcon.Close();
+
+            }
+
+        }
+
         public string Existe(string Valor)
         {
             string Rpta = "";

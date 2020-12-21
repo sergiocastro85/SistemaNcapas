@@ -133,7 +133,7 @@ namespace Sistema.Presentacion
             //si despues de mostrar la ventana para mostrar los archivos en resultado es un OK, entonces significa que se a seleccionado un archivo
             if (file.ShowDialog() == DialogResult.OK)
             {
-                //si es ok, entonces el pictire Image va ser igual a la imagen seleccionada y se obtiene el nombre del directorio con el metodo filename
+                //si es ok, entonces el pictUre Image va ser igual a la imagen seleccionada y se obtiene el nombre del directorio con el metodo filename
                 PicImagen.Image = Image.FromFile(file.FileName);
                 //tambiémn le indico a mi caja de texto el nombre de la imagen
                 txtImagen.Text = file.FileName.Substring(file.FileName.LastIndexOf("\\")+1);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,6 +141,45 @@ namespace Sistema.Presentacion
                 //le indicamos la ruta origenn
                 this.RutaOrigen = file.FileName;
             }
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            //tabajar con la libreria barcodelib
+            //creamos el objeto y lo instanciamos
+            BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
+            //para que incluya el texto que va debajo del código
+            Codigo.IncludeLabel = true;
+            //colocamos los parametros que van a ir dentro del panel en el codigo de Barras
+            PanelCodigo.BackgroundImage = Codigo.Encode(BarcodeLib.TYPE.CODE128,txtCodigoBarras.Text,Color.Black,Color.White,400,100);
+            btnGuardarCodigo.Enabled = true;
+
+
+        }
+
+        private void btnGuardarCodigo_Click(object sender, EventArgs e)
+        {
+            //declaramos un objeto de tipo imagen y clonamos lo que se tiene en el panel código
+            //es decir se clona el codigo de barras y se almacena en el objeto
+            Image ImgFinal = (Image)PanelCodigo.BackgroundImage.Clone();
+
+            //se crea objeto DialogoGuardar de tipo SaveFileDialog
+            SaveFileDialog DialogoGuardar = new SaveFileDialog();
+            //se le indica que permita guardar la extención
+            DialogoGuardar.AddExtension = true;
+            //que permita solo extenciones de png
+            DialogoGuardar.Filter = "Image PNG (*.png)|*.png";
+
+            DialogoGuardar.ShowDialog();
+            //si selecciono un directorio me permite guardarlo en el directorio
+            if (!string.IsNullOrEmpty(DialogoGuardar.FileName))
+            {
+                ImgFinal.Save(DialogoGuardar.FileName, ImageFormat.Png);
+            }
+            ImgFinal.Dispose();
+
+
+
         }
     }
 }

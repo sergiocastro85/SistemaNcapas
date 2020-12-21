@@ -60,8 +60,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGuardarCodigo = new System.Windows.Forms.Button();
+            this.PanelCodigo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
@@ -144,8 +144,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.btnGuardar);
+            this.tabPage2.Controls.Add(this.PanelCodigo);
+            this.tabPage2.Controls.Add(this.btnGuardarCodigo);
             this.tabPage2.Controls.Add(this.btnGenerar);
             this.tabPage2.Controls.Add(this.txtCodigoBarras);
             this.tabPage2.Controls.Add(this.label6);
@@ -370,22 +370,25 @@
             this.btnGenerar.TabIndex = 17;
             this.btnGenerar.Text = "Generar Código";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // btnGuardar
+            // btnGuardarCodigo
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(329, 228);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(136, 23);
-            this.btnGuardar.TabIndex = 18;
-            this.btnGuardar.Text = "Guardar Código";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardarCodigo.Enabled = false;
+            this.btnGuardarCodigo.Location = new System.Drawing.Point(329, 228);
+            this.btnGuardarCodigo.Name = "btnGuardarCodigo";
+            this.btnGuardarCodigo.Size = new System.Drawing.Size(136, 23);
+            this.btnGuardarCodigo.TabIndex = 18;
+            this.btnGuardarCodigo.Text = "Guardar Código";
+            this.btnGuardarCodigo.UseVisualStyleBackColor = true;
+            this.btnGuardarCodigo.Click += new System.EventHandler(this.btnGuardarCodigo_Click);
             // 
-            // panel1
+            // PanelCodigo
             // 
-            this.panel1.Location = new System.Drawing.Point(177, 269);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 150);
-            this.panel1.TabIndex = 19;
+            this.PanelCodigo.Location = new System.Drawing.Point(177, 269);
+            this.PanelCodigo.Name = "PanelCodigo";
+            this.PanelCodigo.Size = new System.Drawing.Size(420, 100);
+            this.PanelCodigo.TabIndex = 19;
             // 
             // frmArticulo
             // 
@@ -438,8 +441,8 @@
         private System.Windows.Forms.Button BtnCargarImagen;
         private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Panel PanelCodigo;
+        private System.Windows.Forms.Button btnGuardarCodigo;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label6;

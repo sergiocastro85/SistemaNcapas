@@ -39,6 +39,12 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.PicImagen = new System.Windows.Forms.PictureBox();
+            this.BtnCargarImagen = new System.Windows.Forms.Button();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CboCategoria = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -51,18 +57,17 @@
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.tabGeneral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CboCategoria = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtImagen = new System.Windows.Forms.TextBox();
-            this.BtnCargarImagen = new System.Windows.Forms.Button();
-            this.PicImagen = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
             this.tabGeneral.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // ErrorIcono
@@ -107,7 +112,7 @@
             // 
             // TxtDescripcion
             // 
-            this.TxtDescripcion.Location = new System.Drawing.Point(177, 369);
+            this.TxtDescripcion.Location = new System.Drawing.Point(693, 474);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(288, 84);
@@ -123,7 +128,7 @@
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(177, 324);
+            this.TxtNombre.Location = new System.Drawing.Point(177, 149);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(288, 20);
             this.TxtNombre.TabIndex = 2;
@@ -131,7 +136,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 372);
+            this.label2.Location = new System.Drawing.Point(583, 477);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -139,6 +144,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.btnGuardar);
+            this.tabPage2.Controls.Add(this.btnGenerar);
+            this.tabPage2.Controls.Add(this.txtCodigoBarras);
+            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.PicImagen);
             this.tabPage2.Controls.Add(this.BtnCargarImagen);
             this.tabPage2.Controls.Add(this.txtImagen);
@@ -162,10 +172,63 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // PicImagen
+            // 
+            this.PicImagen.Location = new System.Drawing.Point(743, 149);
+            this.PicImagen.Name = "PicImagen";
+            this.PicImagen.Size = new System.Drawing.Size(305, 101);
+            this.PicImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicImagen.TabIndex = 14;
+            this.PicImagen.TabStop = false;
+            // 
+            // BtnCargarImagen
+            // 
+            this.BtnCargarImagen.Location = new System.Drawing.Point(1012, 101);
+            this.BtnCargarImagen.Name = "BtnCargarImagen";
+            this.BtnCargarImagen.Size = new System.Drawing.Size(36, 23);
+            this.BtnCargarImagen.TabIndex = 13;
+            this.BtnCargarImagen.Text = "...";
+            this.BtnCargarImagen.UseVisualStyleBackColor = true;
+            this.BtnCargarImagen.Click += new System.EventHandler(this.BtnCargarImagen_Click);
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.Enabled = false;
+            this.txtImagen.Location = new System.Drawing.Point(743, 104);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(238, 20);
+            this.txtImagen.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(651, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Imagen";
+            // 
+            // CboCategoria
+            // 
+            this.CboCategoria.FormattingEnabled = true;
+            this.CboCategoria.Location = new System.Drawing.Point(177, 103);
+            this.CboCategoria.Name = "CboCategoria";
+            this.CboCategoria.Size = new System.Drawing.Size(288, 21);
+            this.CboCategoria.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(67, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Categoría (*)";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 331);
+            this.label1.Location = new System.Drawing.Point(67, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
@@ -278,63 +341,51 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1210, 406);
+            this.tabPage1.Size = new System.Drawing.Size(1210, 664);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Categoría (*)";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(67, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Código de barras";
             // 
-            // CboCategoria
+            // txtCodigoBarras
             // 
-            this.CboCategoria.FormattingEnabled = true;
-            this.CboCategoria.Location = new System.Drawing.Point(177, 103);
-            this.CboCategoria.Name = "CboCategoria";
-            this.CboCategoria.Size = new System.Drawing.Size(288, 21);
-            this.CboCategoria.TabIndex = 10;
+            this.txtCodigoBarras.Location = new System.Drawing.Point(177, 189);
+            this.txtCodigoBarras.Name = "txtCodigoBarras";
+            this.txtCodigoBarras.Size = new System.Drawing.Size(288, 20);
+            this.txtCodigoBarras.TabIndex = 16;
             // 
-            // label5
+            // btnGenerar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(651, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Imagen";
+            this.btnGenerar.Location = new System.Drawing.Point(177, 228);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(138, 23);
+            this.btnGenerar.TabIndex = 17;
+            this.btnGenerar.Text = "Generar Código";
+            this.btnGenerar.UseVisualStyleBackColor = true;
             // 
-            // txtImagen
+            // btnGuardar
             // 
-            this.txtImagen.Enabled = false;
-            this.txtImagen.Location = new System.Drawing.Point(743, 104);
-            this.txtImagen.Name = "txtImagen";
-            this.txtImagen.Size = new System.Drawing.Size(238, 20);
-            this.txtImagen.TabIndex = 12;
+            this.btnGuardar.Location = new System.Drawing.Point(329, 228);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(136, 23);
+            this.btnGuardar.TabIndex = 18;
+            this.btnGuardar.Text = "Guardar Código";
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // BtnCargarImagen
+            // panel1
             // 
-            this.BtnCargarImagen.Location = new System.Drawing.Point(1012, 101);
-            this.BtnCargarImagen.Name = "BtnCargarImagen";
-            this.BtnCargarImagen.Size = new System.Drawing.Size(36, 23);
-            this.BtnCargarImagen.TabIndex = 13;
-            this.BtnCargarImagen.Text = "...";
-            this.BtnCargarImagen.UseVisualStyleBackColor = true;
-            this.BtnCargarImagen.Click += new System.EventHandler(this.BtnCargarImagen_Click);
-            // 
-            // PicImagen
-            // 
-            this.PicImagen.Location = new System.Drawing.Point(743, 149);
-            this.PicImagen.Name = "PicImagen";
-            this.PicImagen.Size = new System.Drawing.Size(305, 101);
-            this.PicImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicImagen.TabIndex = 14;
-            this.PicImagen.TabStop = false;
+            this.panel1.Location = new System.Drawing.Point(177, 269);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(450, 150);
+            this.panel1.TabIndex = 19;
             // 
             // frmArticulo
             // 
@@ -348,11 +399,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).EndInit();
             this.tabGeneral.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,5 +438,10 @@
         private System.Windows.Forms.Button BtnCargarImagen;
         private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.TextBox txtCodigoBarras;
+        private System.Windows.Forms.Label label6;
     }
 }

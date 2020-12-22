@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,9 +82,20 @@ namespace Sistema.Presentacion
             TxtNombre.Clear();
             TxtDescripcion.Clear();
             TxtId.Clear();
+            txtCodigoBarras.Clear();
+            PanelCodigo.BackgroundImage = null;
+            btnGuardarCodigo.Enabled = true;
+            txtPrecioVenta.Clear();
+            txtStock.Clear();
+            txtImagen.Clear();
+            PicImagen.Image = null;
             BtnInsertar.Visible = true;
             BtnActualizar.Visible = false; //ocultar el boton de actualizar
             ErrorIcono.Clear();
+
+            this.RutaDestino = ""; //dejamos la ruta vacia
+            this.RutaOrigen = ""; //dejamos la ruta vacia
+            
 
             DgvListado.Columns[0].Visible = false;
             BtnActivar.Visible = false;
@@ -180,6 +192,53 @@ namespace Sistema.Presentacion
 
 
 
+        }
+
+        private void BtnInsertar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                if (CboCategoria.Text==string.Empty||TxtNombre.Text == string.Empty||txtPrecioVenta.Text==string.Empty||txtStock.Text==string.Empty)
+                {
+                    //se mapena los error cuando no digiten datos en los campos obligatorios
+                    this.MensaError("Falta ingresar algunos datos , seran remarcados .");
+                    ErrorIcono.SetError(CboCategoria, "Ingrese una Categoría");
+                    ErrorIcono.SetError(TxtNombre, "Ingrese el Nombre");
+                    ErrorIcono.SetError(txtPrecioVenta, "Ingrese Precio de Venta");
+                    ErrorIcono.SetError(txtStock, "Ingrese Stock");
+                }
+                else
+                {
+                    //se mapean todos los parametros que se van almacendar en el metodo insertar
+                    Rpta = NArticulo.Insertar(Convert.ToInt32(CboCategoria.SelectedValue),txtCodigoBarras.Text.Trim(),TxtNombre.Text.Trim(), Convert.ToDecimal(txtPrecioVenta.Text),Convert.ToInt32(txtStock.Text),TxtDescripcion.Text.Trim(),txtImagen.Text.Trim());
+                    //si se recibe un OK de la capa Negocio
+                    if (Rpta.Equals("OK"))
+                    {
+                        //me retorna se inserto de forma correcta el registro
+                        this.MensajeOK("Se inserto de forma correcta el registro");
+                        //si la imagen es diferente de vacio
+                        if (txtImagen.Text!=string.Empty)
+                        {
+                            //establecemos la ruta de destino
+                            this.RutaDestino = this.Directorio + txtImagen.Text;
+                            //utilizamos la clase File, para copiarla
+                            File.Copy(this.RutaOrigen,this.RutaDestino);
+
+                        }
+                        
+                        this.Listar();
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

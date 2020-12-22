@@ -39,6 +39,11 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.PanelCodigo = new System.Windows.Forms.Panel();
+            this.btnGuardarCodigo = new System.Windows.Forms.Button();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.PicImagen = new System.Windows.Forms.PictureBox();
             this.BtnCargarImagen = new System.Windows.Forms.Button();
             this.txtImagen = new System.Windows.Forms.TextBox();
@@ -57,11 +62,10 @@
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.tabGeneral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
-            this.btnGenerar = new System.Windows.Forms.Button();
-            this.btnGuardarCodigo = new System.Windows.Forms.Button();
-            this.PanelCodigo = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
@@ -100,6 +104,7 @@
             this.BtnInsertar.TabIndex = 6;
             this.BtnInsertar.Text = "Insertar";
             this.BtnInsertar.UseVisualStyleBackColor = true;
+            this.BtnInsertar.Click += new System.EventHandler(this.BtnInsertar_Click);
             // 
             // label3
             // 
@@ -112,7 +117,7 @@
             // 
             // TxtDescripcion
             // 
-            this.TxtDescripcion.Location = new System.Drawing.Point(693, 474);
+            this.TxtDescripcion.Location = new System.Drawing.Point(743, 308);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(288, 84);
@@ -136,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(583, 477);
+            this.label2.Location = new System.Drawing.Point(651, 311);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -144,6 +149,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtStock);
+            this.tabPage2.Controls.Add(this.txtPrecioVenta);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.PanelCodigo);
             this.tabPage2.Controls.Add(this.btnGuardarCodigo);
             this.tabPage2.Controls.Add(this.btnGenerar);
@@ -171,6 +180,50 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // PanelCodigo
+            // 
+            this.PanelCodigo.Location = new System.Drawing.Point(177, 269);
+            this.PanelCodigo.Name = "PanelCodigo";
+            this.PanelCodigo.Size = new System.Drawing.Size(420, 100);
+            this.PanelCodigo.TabIndex = 19;
+            // 
+            // btnGuardarCodigo
+            // 
+            this.btnGuardarCodigo.Enabled = false;
+            this.btnGuardarCodigo.Location = new System.Drawing.Point(329, 228);
+            this.btnGuardarCodigo.Name = "btnGuardarCodigo";
+            this.btnGuardarCodigo.Size = new System.Drawing.Size(136, 23);
+            this.btnGuardarCodigo.TabIndex = 18;
+            this.btnGuardarCodigo.Text = "Guardar Código";
+            this.btnGuardarCodigo.UseVisualStyleBackColor = true;
+            this.btnGuardarCodigo.Click += new System.EventHandler(this.btnGuardarCodigo_Click);
+            // 
+            // btnGenerar
+            // 
+            this.btnGenerar.Location = new System.Drawing.Point(177, 228);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(138, 23);
+            this.btnGenerar.TabIndex = 17;
+            this.btnGenerar.Text = "Generar Código";
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // txtCodigoBarras
+            // 
+            this.txtCodigoBarras.Location = new System.Drawing.Point(177, 189);
+            this.txtCodigoBarras.Name = "txtCodigoBarras";
+            this.txtCodigoBarras.Size = new System.Drawing.Size(288, 20);
+            this.txtCodigoBarras.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(67, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Código de barras";
             // 
             // PicImagen
             // 
@@ -346,49 +399,37 @@
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 189);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Código de barras";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(67, 394);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Precio Venta (*)";
             // 
-            // txtCodigoBarras
+            // label8
             // 
-            this.txtCodigoBarras.Location = new System.Drawing.Point(177, 189);
-            this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(288, 20);
-            this.txtCodigoBarras.TabIndex = 16;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(67, 438);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Stock (*)";
             // 
-            // btnGenerar
+            // txtPrecioVenta
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(177, 228);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(138, 23);
-            this.btnGenerar.TabIndex = 17;
-            this.btnGenerar.Text = "Generar Código";
-            this.btnGenerar.UseVisualStyleBackColor = true;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(180, 387);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecioVenta.TabIndex = 22;
             // 
-            // btnGuardarCodigo
+            // txtStock
             // 
-            this.btnGuardarCodigo.Enabled = false;
-            this.btnGuardarCodigo.Location = new System.Drawing.Point(329, 228);
-            this.btnGuardarCodigo.Name = "btnGuardarCodigo";
-            this.btnGuardarCodigo.Size = new System.Drawing.Size(136, 23);
-            this.btnGuardarCodigo.TabIndex = 18;
-            this.btnGuardarCodigo.Text = "Guardar Código";
-            this.btnGuardarCodigo.UseVisualStyleBackColor = true;
-            this.btnGuardarCodigo.Click += new System.EventHandler(this.btnGuardarCodigo_Click);
-            // 
-            // PanelCodigo
-            // 
-            this.PanelCodigo.Location = new System.Drawing.Point(177, 269);
-            this.PanelCodigo.Name = "PanelCodigo";
-            this.PanelCodigo.Size = new System.Drawing.Size(420, 100);
-            this.PanelCodigo.TabIndex = 19;
+            this.txtStock.Location = new System.Drawing.Point(177, 431);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(100, 20);
+            this.txtStock.TabIndex = 23;
             // 
             // frmArticulo
             // 
@@ -446,5 +487,9 @@
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.TextBox txtPrecioVenta;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }

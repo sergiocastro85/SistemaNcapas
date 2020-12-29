@@ -39,6 +39,10 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.PanelCodigo = new System.Windows.Forms.Panel();
             this.btnGuardarCodigo = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
@@ -62,10 +66,6 @@
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.tabGeneral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
@@ -86,6 +86,7 @@
             this.BtnActualizar.TabIndex = 8;
             this.BtnActualizar.Text = "Actuliazar";
             this.BtnActualizar.UseVisualStyleBackColor = true;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // BtnCancelar
             // 
@@ -95,6 +96,7 @@
             this.BtnCancelar.TabIndex = 7;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnInsertar
             // 
@@ -180,6 +182,38 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(177, 431);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(100, 20);
+            this.txtStock.TabIndex = 23;
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.Location = new System.Drawing.Point(180, 387);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecioVenta.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(67, 438);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Stock (*)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(67, 394);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Precio Venta (*)";
             // 
             // PanelCodigo
             // 
@@ -370,6 +404,7 @@
             this.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListado.Size = new System.Drawing.Size(1198, 291);
             this.DgvListado.TabIndex = 0;
+            this.DgvListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellDoubleClick);
             // 
             // tabGeneral
             // 
@@ -398,38 +433,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 394);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Precio Venta (*)";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(67, 438);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Stock (*)";
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(180, 387);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecioVenta.TabIndex = 22;
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(177, 431);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 20);
-            this.txtStock.TabIndex = 23;
             // 
             // frmArticulo
             // 

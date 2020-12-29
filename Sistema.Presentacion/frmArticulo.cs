@@ -18,6 +18,7 @@ namespace Sistema.Presentacion
         private string RutaOrigen;
         private string RutaDestino;
         private string Directorio = "D:\\sistema\\";
+        private string NombreAnt;
 
 
         public frmArticulo()
@@ -239,6 +240,101 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        //evento doble click en datagridView
+        private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.Limpiar();
+                BtnActualizar.Visible = true;
+                BtnInsertar.Visible = true;
+                //seleccionar el ID del Artículo que se va actualizar
+                TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value);
+                CboCategoria.SelectedValue = Convert.ToString(DgvListado.CurrentRow.Cells["idcategoria"].Value);
+                txtCodigoBarras.Text = Convert.ToString(DgvListado.CurrentRow.Cells["codigo"].Value);
+                this.NombreAnt = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
+                TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
+                txtPrecioVenta.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Precio_venta"].Value);
+                txtStock.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Stock"].Value);
+                TxtDescripcion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Descripcion"].Value);
+                string Imagen;
+                Imagen = Convert.ToString(DgvListado.CurrentRow.Cells["Imagen"].Value);
+                if (Imagen != string.Empty)
+                {
+                    //con la clase image, se selecciona un archivo para almacenar la ruta del directorio
+                    PicImagen.Image = Image.FromFile(this.Directorio + Imagen);
+                    txtImagen.Text = Imagen;
+                }
+                else
+                {
+                    PicImagen.Image = null;
+                    txtImagen.Text = "";
+                }
+                tabGeneral.SelectedIndex = 1;
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Seleccione desde la celda nombre." + "| Error: " + ex.Message);
+            }
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                if (TxtId.Text==string.Empty||CboCategoria.Text == string.Empty || TxtNombre.Text == string.Empty || txtPrecioVenta.Text == string.Empty || txtStock.Text == string.Empty)
+                {
+                    //se mapena los error cuando no digiten datos en los campos obligatorios
+                    this.MensaError("Falta ingresar algunos datos , seran remarcados .");
+                    ErrorIcono.SetError(CboCategoria, "Ingrese una Categoría");
+                    ErrorIcono.SetError(TxtNombre, "Ingrese el Nombre");
+                    ErrorIcono.SetError(txtPrecioVenta, "Ingrese Precio de Venta");
+                    ErrorIcono.SetError(txtStock, "Ingrese Stock");
+                }
+                else
+                {
+                    //se mapean todos los parametros que se van almacendar en el metodo insertar
+                    Rpta = NArticulo.Actualizar(Convert.ToInt32(TxtId.Text),Convert.ToInt32(CboCategoria.SelectedValue), txtCodigoBarras.Text.Trim(), this.NombreAnt,TxtNombre.Text.Trim(), Convert.ToDecimal(txtPrecioVenta.Text), Convert.ToInt32(txtStock.Text), TxtDescripcion.Text.Trim(), txtImagen.Text.Trim());
+                    //si se recibe un OK de la capa Negocio
+                    if (Rpta.Equals("OK"))
+                    {
+                        //me retorna se inserto de forma correcta el registro
+                        this.MensajeOK("Se actualizó de forma correcta el registro");
+                        //si la imagen es diferente de vacio
+                        if (txtImagen.Text != string.Empty && this.RutaOrigen!=string.Empty)
+                        {
+                            //establecemos la ruta de destino
+                            this.RutaDestino = this.Directorio + txtImagen.Text;
+                            //utilizamos la clase File, para copiarlan en la carpeta del directorio
+                            File.Copy(this.RutaOrigen, this.RutaDestino);
+
+                        }
+
+                        this.Listar();
+                        tabGeneral.SelectedIndex = 0;
+
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
+            tabGeneral.SelectedIndex = 0;
         }
     }
 }

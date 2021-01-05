@@ -17,7 +17,7 @@ namespace Sistema.Presentacion
     {
         private string RutaOrigen;
         private string RutaDestino;
-        private string Directorio = "D:\\sistema\\";
+        private string Directorio = "D:\\Usuarios\\scastroc\\Pictures";
         private string NombreAnt;
 
 
@@ -468,7 +468,7 @@ namespace Sistema.Presentacion
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente deseas desacrivar el (los) Registro (s) ?", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente deseas activar el (los) Registro (s) ?", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {

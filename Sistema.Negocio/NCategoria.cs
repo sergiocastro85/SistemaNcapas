@@ -69,21 +69,18 @@ namespace Sistema.Negocio
                 {
                     return "La Categoría ya existe";
                 }
+                else
+                {
+                    obj.IdCategoria = Id;
+                    obj.Nombre = Nombre;
+                    obj.Descripcion = Descripcion;
+                    return Datos.Actualizar(obj);
+
+                }
             }
 
-            string Exixte = Datos.Existe(Nombre);
-            if (Exixte == "1")
-            {
-                return "La Categoría ya existe";
-            }
-            else
-            {
-                obj.IdCategoria = Id;
-                obj.Nombre = Nombre;
-                obj.Descripcion = Descripcion;
-                return Datos.Actualizar(obj);
 
-            }
+
                 
         }
         public static string Eliminar(int Id)

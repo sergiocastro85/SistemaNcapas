@@ -51,6 +51,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.tabGeneral = new System.Windows.Forms.TabControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CboRol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,7 +66,7 @@
             // 
             // BtnActualizar
             // 
-            this.BtnActualizar.Location = new System.Drawing.Point(179, 270);
+            this.BtnActualizar.Location = new System.Drawing.Point(170, 401);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(138, 28);
             this.BtnActualizar.TabIndex = 8;
@@ -73,7 +75,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(323, 270);
+            this.BtnCancelar.Location = new System.Drawing.Point(314, 401);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(142, 30);
             this.BtnCancelar.TabIndex = 7;
@@ -82,7 +84,7 @@
             // 
             // BtnInsertar
             // 
-            this.BtnInsertar.Location = new System.Drawing.Point(177, 270);
+            this.BtnInsertar.Location = new System.Drawing.Point(168, 401);
             this.BtnInsertar.Name = "BtnInsertar";
             this.BtnInsertar.Size = new System.Drawing.Size(140, 30);
             this.BtnInsertar.TabIndex = 6;
@@ -92,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 228);
+            this.label3.Location = new System.Drawing.Point(168, 359);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(202, 13);
             this.label3.TabIndex = 5;
@@ -100,7 +102,7 @@
             // 
             // TxtDescripcion
             // 
-            this.TxtDescripcion.Location = new System.Drawing.Point(177, 120);
+            this.TxtDescripcion.Location = new System.Drawing.Point(168, 251);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(288, 84);
@@ -108,7 +110,7 @@
             // 
             // TxtId
             // 
-            this.TxtId.Location = new System.Drawing.Point(306, 27);
+            this.TxtId.Location = new System.Drawing.Point(297, 31);
             this.TxtId.Name = "TxtId";
             this.TxtId.Size = new System.Drawing.Size(159, 20);
             this.TxtId.TabIndex = 3;
@@ -116,7 +118,7 @@
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(177, 75);
+            this.TxtNombre.Location = new System.Drawing.Point(168, 206);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(288, 20);
             this.TxtNombre.TabIndex = 2;
@@ -124,7 +126,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 123);
+            this.label2.Location = new System.Drawing.Point(58, 254);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -132,6 +134,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.CboRol);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.BtnActualizar);
             this.tabPage2.Controls.Add(this.BtnCancelar);
             this.tabPage2.Controls.Add(this.BtnInsertar);
@@ -144,7 +148,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(808, 406);
+            this.tabPage2.Size = new System.Drawing.Size(1231, 470);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -152,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 82);
+            this.label1.Location = new System.Drawing.Point(58, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
@@ -270,6 +274,23 @@
             this.tabGeneral.Size = new System.Drawing.Size(1239, 496);
             this.tabGeneral.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(58, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Rol (*)";
+            // 
+            // CboRol
+            // 
+            this.CboRol.FormattingEnabled = true;
+            this.CboRol.Location = new System.Drawing.Point(168, 73);
+            this.CboRol.Name = "CboRol";
+            this.CboRol.Size = new System.Drawing.Size(288, 21);
+            this.CboRol.TabIndex = 10;
+            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +335,7 @@
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CboRol;
+        private System.Windows.Forms.Label label4;
     }
 }

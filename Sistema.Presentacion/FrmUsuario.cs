@@ -13,6 +13,10 @@ namespace Sistema.Presentacion
 {
     public partial class FrmUsuario : Form
     {
+
+        //se declara esta variable, para poder hacer la validación si ya existe el Email.
+        private string EmailAnt;
+
         public FrmUsuario()
         {
             InitializeComponent();
@@ -158,6 +162,74 @@ namespace Sistema.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //llamar al metodo limpiar
+                this.Limpiar();
+                BtnActualizar.Visible = true;
+                BtnInsertar.Visible = false;
+                TxtId.Text = Convert.ToString(DgvListado.CurrentRow.Cells["ID"].Value);
+                CboRol.SelectedValue = Convert.ToString(DgvListado.CurrentRow.Cells["idRol"].Value);
+                TxtNombre.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Nombre"].Value);
+                CboTipoDocumento.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Tipo_Documento"].Value);
+                TxtNumDocumento.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Num_Documento"].Value);
+                TxtDireccion.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Direccion"].Value);
+                TxtTelefono.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Telefono"].Value);
+                this.EmailAnt= Convert.ToString(DgvListado.CurrentRow.Cells["Email"].Value);
+                TxtEmail.Text = Convert.ToString(DgvListado.CurrentRow.Cells["Email"].Value);
+
+                //mostramos el formulario
+                tabGeneral.SelectedIndex = 1;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Seleccione desde la celda nombre." + "|Error:" + ex.Message);
+            }
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                //validar que los campos obligatorios no se encuentren vacios
+                if (TxtId.Text==string.Empty ||CboRol.Text == string.Empty || TxtNombre.Text == string.Empty || TxtEmail.Text == string.Empty)
+                {
+                    this.MensaError("Falta ingresar algunos datos , seran remarcados .");
+                    ErrorIcono.SetError(CboRol, "Seleccione un rol.");
+                    ErrorIcono.SetError(TxtNombre, "Ingrese el Nombre");
+                    ErrorIcono.SetError(TxtEmail, "Ingrese el Email");
+                    ErrorIcono.SetError(TxtClave, "Ingrese una clave");
+                }
+                else
+                {
+                    Rpta = NUsuario.Actualizar(Convert.ToInt32(TxtId.Text),Convert.ToInt32(CboRol.SelectedValue), TxtNombre.Text.Trim(), CboTipoDocumento.Text, TxtNumDocumento.Text.Trim(), TxtDireccion.Text.Trim(), TxtTelefono.Text.Trim(), this.EmailAnt,TxtEmail.Text.Trim(), TxtClave.Text.Trim());
+                    if (Rpta.Equals("OK"))
+                    {
+                        this.MensajeOK("Se Actualizo de forma correcta el registro");
+                        this.Listar();
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
+            tabGeneral.SelectedIndex = 0;
         }
     }
 }

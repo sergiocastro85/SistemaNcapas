@@ -71,8 +71,12 @@ namespace Sistema.Presentacion
         {
             TxtBuscar.Clear();
             TxtNombre.Clear();
-            TxtDescripcion.Clear();
             TxtId.Clear();
+            TxtNumDocumento.Clear();
+            TxtDireccion.Clear();
+            TxtTelefono.Clear();
+            TxtEmail.Clear();
+            TxtClave.Clear();
             BtnInsertar.Visible = true;
             BtnActualizar.Visible = false; //ocultar el boton de actualizar
             ErrorIcono.Clear();
@@ -120,6 +124,40 @@ namespace Sistema.Presentacion
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             this.Buscar();
+        }
+
+        private void BtnInsertar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                //validar que los campos obligatorios no se encuentren vacios
+                if (CboRol.Text ==string.Empty||TxtNombre.Text == string.Empty|| TxtEmail.Text==string.Empty|| TxtClave.Text==string.Empty)
+                {
+                    this.MensaError("Falta ingresar algunos datos , seran remarcados .");
+                    ErrorIcono.SetError(CboRol, "Seleccione un rol.");
+                    ErrorIcono.SetError(TxtNombre, "Ingrese el Nombre");
+                    ErrorIcono.SetError(TxtEmail, "Ingrese el Email");
+                    ErrorIcono.SetError(TxtClave, "Ingrese una clave");
+                }
+                else
+                {
+                    Rpta = NUsuario.Insertar(Convert.ToInt32(CboRol.SelectedValue),TxtNombre.Text.Trim(),CboTipoDocumento.Text,TxtNumDocumento.Text.Trim(),TxtDireccion.Text.Trim(),TxtTelefono.Text.Trim(),TxtEmail.Text.Trim(),TxtClave.Text.Trim());
+                    if (Rpta.Equals("OK"))
+                    {
+                        this.MensajeOK("Se inserto de forma correcta el registro");
+                        this.Listar();
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

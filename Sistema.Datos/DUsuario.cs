@@ -73,7 +73,37 @@ namespace Sistema.Datos
 
         }
 
-   
+
+        public DataTable Login(string Email, string Clave)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection Sqlcon = new SqlConnection();
+            try
+            {
+
+                Sqlcon = Conexion.getInstacia().CrearConexion();
+                SqlCommand Comando = new SqlCommand("usuario_login", Sqlcon);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.Add("@email", SqlDbType.VarChar).Value = Email;
+                Comando.Parameters.Add("@clave", SqlDbType.VarChar).Value = Clave;
+                Sqlcon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Sqlcon.State == ConnectionState.Open)
+                    Sqlcon.Close();
+            }
+        }
+
 
         public string Existe(string Valor)
         {

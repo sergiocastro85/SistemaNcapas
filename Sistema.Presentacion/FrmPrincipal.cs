@@ -138,9 +138,58 @@ namespace Sistema.Presentacion
             frm.Show();
         }
 
+        //metodo load, para cargar a cada rol el perfil del menu que le corresponde
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            StBarraInferior.Text = " Desarrollado por Sergio Andres Castro, Usuario: " + this.Nombre;
+            MessageBox.Show("Bienvenido: " + this.Nombre, "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (this.Rol.Equals("Administrador"))
+            {
+                MnuAlmacen.Enabled = true;
+                MnuIngresos.Enabled = true;
+                MnuVentanas.Enabled = true;
+                MnuAccesos.Enabled = true;
+                MnuConsultas.Enabled = true;
+                TsCompras.Enabled = true;
+                TsVentas.Enabled = true;
+            }
+            else
+            {
+                if (this.Rol.Equals("Vendedor"))
+                {
+                    MnuAlmacen.Enabled = false;
+                    MnuIngresos.Enabled = false;
+                    MnuVentanas.Enabled = true;
+                    MnuAccesos.Enabled = false;
+                    MnuConsultas.Enabled = true;
+                    TsCompras.Enabled = false;
+                    TsVentas.Enabled = false;
+                }
+                else
+                {
+                    if (this.Rol.Equals("Almacenero"))
+                    {
+                        MnuAlmacen.Enabled = true;
+                        MnuIngresos.Enabled = true;
+                        MnuVentanas.Enabled = false;
+                        MnuAccesos.Enabled = false;
+                        MnuConsultas.Enabled = true;
+                        TsCompras.Enabled = true;
+                        TsVentas.Enabled = false;
+                    }
+                    else
+                    {
+                        MnuAlmacen.Enabled = false;
+                        MnuIngresos.Enabled = false;
+                        MnuVentanas.Enabled = false;
+                        MnuAccesos.Enabled = false;
+                        MnuConsultas.Enabled = false;
+                        TsCompras.Enabled = false;
+                        TsVentas.Enabled = false;
+                    }
 
+                }
+            }
         }
     }
 }

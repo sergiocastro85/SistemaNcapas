@@ -328,6 +328,7 @@
             this.MnuSalir.Name = "MnuSalir";
             this.MnuSalir.Size = new System.Drawing.Size(41, 20);
             this.MnuSalir.Text = "Salir";
+            this.MnuSalir.Click += new System.EventHandler(this.MnuSalir_Click);
             // 
             // toolStrip
             // 
@@ -387,6 +388,7 @@
             this.Name = "FrmPrincipal";
             this.Text = "Sistema de Compras y Ventas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

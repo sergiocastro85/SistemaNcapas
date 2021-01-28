@@ -191,5 +191,20 @@ namespace Sistema.Presentacion
                 }
             }
         }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MnuSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult Opcion;
+            Opcion = MessageBox.Show("Deseas salir del sistema?", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Opcion==DialogResult.OK)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

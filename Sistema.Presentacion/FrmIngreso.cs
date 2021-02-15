@@ -13,6 +13,11 @@ namespace Sistema.Presentacion
 {
     public partial class FrmIngreso : Form
     {
+
+        //crear variable datatable
+        
+        private DataTable DtDetalle = new DataTable();
+
         public FrmIngreso()
         {
             InitializeComponent();
@@ -74,8 +79,6 @@ namespace Sistema.Presentacion
         private void Limpiar()
         {
             TxtBuscar.Clear();
-            TxtNombre.Clear();
-            TxtDescripcion.Clear();
             TxtId.Clear();
             BtnInsertar.Visible = true;
             ErrorIcono.Clear();
@@ -95,11 +98,45 @@ namespace Sistema.Presentacion
             MessageBox.Show(Mensaje, "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void CrearTabla()
+        {
+            //este metodo estpera dos parametros: el nombre de la columna y el tipo de dato de la columna
+            this.DtDetalle.Columns.Add("idarticulo", System.Type.GetType("System.Int32"));
+            this.DtDetalle.Columns.Add("codigo", System.Type.GetType("System.String"));
+            this.DtDetalle.Columns.Add("articulo", System.Type.GetType("System.String"));
+            this.DtDetalle.Columns.Add("cantidad", System.Type.GetType("System.Int32"));
+            this.DtDetalle.Columns.Add("precio", System.Type.GetType("System.Decimal"));
+
+            //Indicar la fuente de datos de datagridview
+            DgvDetalle.DataSource = this.DtDetalle;
+
+            DgvDetalle.Columns[0].Visible = false;
+            DgvDetalle.Columns[1].HeaderText = "CODIGO";
+            DgvDetalle.Columns[1].Width = 100;
+            DgvDetalle.Columns[2].HeaderText = "ARTICULO";
+            DgvDetalle.Columns[2].Width = 200;
+            DgvDetalle.Columns[3].HeaderText = "CANTIDAD";
+            DgvDetalle.Columns[3].Width = 70;
+            DgvDetalle.Columns[4].HeaderText = "PRECIO";
+            DgvDetalle.Columns[4].Width = 70;
+            DgvDetalle.Columns[5].HeaderText = "IMPORTE";
+            DgvDetalle.Columns[5].Width = 80;
+
+            //Indicamos que la columna 1,2,5 sean de solo lectura
+            DgvDetalle.Columns[1].ReadOnly = true;
+            DgvDetalle.Columns[2].ReadOnly = true;
+            DgvDetalle.Columns[5].ReadOnly = true;
+
+
+
+        }
+
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
             this.Listar();
+            this.CrearTabla();
         }
-
+                
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             this.Buscar();

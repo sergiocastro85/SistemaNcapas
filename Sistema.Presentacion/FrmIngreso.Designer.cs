@@ -33,12 +33,7 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnInsertar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.TxtDescripcion = new System.Windows.Forms.TextBox();
-            this.TxtId = new System.Windows.Forms.TextBox();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnAnular = new System.Windows.Forms.Button();
             this.ChkSeleccionar = new System.Windows.Forms.CheckBox();
@@ -48,11 +43,39 @@
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabGeneral = new System.Windows.Forms.TabControl();
+            this.GrbCabecera = new System.Windows.Forms.GroupBox();
+            this.TxtId = new System.Windows.Forms.TextBox();
+            this.lblProveedor = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtIdProveedor = new System.Windows.Forms.TextBox();
+            this.TxtNombreProveedor = new System.Windows.Forms.TextBox();
+            this.BtnBuscarProveedor = new System.Windows.Forms.Button();
+            this.CboComprobante = new System.Windows.Forms.ComboBox();
+            this.TxtSerie = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtImpuesto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtNumero = new System.Windows.Forms.Label();
+            this.GrbDetalle = new System.Windows.Forms.GroupBox();
+            this.Articulo = new System.Windows.Forms.Label();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.BtnBuscarArticulo = new System.Windows.Forms.Button();
+            this.DgvDetalle = new System.Windows.Forms.DataGridView();
+            this.TxtSubTotal = new System.Windows.Forms.TextBox();
+            this.TxtTotalImpuesto = new System.Windows.Forms.TextBox();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
+            this.GrbCabecera.SuspendLayout();
+            this.GrbDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // ErrorIcono
@@ -61,7 +84,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(323, 270);
+            this.BtnCancelar.Location = new System.Drawing.Point(158, 563);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(142, 30);
             this.BtnCancelar.TabIndex = 7;
@@ -70,7 +93,7 @@
             // 
             // BtnInsertar
             // 
-            this.BtnInsertar.Location = new System.Drawing.Point(177, 270);
+            this.BtnInsertar.Location = new System.Drawing.Point(12, 563);
             this.BtnInsertar.Name = "BtnInsertar";
             this.BtnInsertar.Size = new System.Drawing.Size(140, 30);
             this.BtnInsertar.TabIndex = 6;
@@ -80,70 +103,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 228);
+            this.label3.Location = new System.Drawing.Point(12, 521);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(202, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "(*) Indica que los campos son obligatorios";
             // 
-            // TxtDescripcion
-            // 
-            this.TxtDescripcion.Location = new System.Drawing.Point(177, 120);
-            this.TxtDescripcion.Multiline = true;
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(288, 84);
-            this.TxtDescripcion.TabIndex = 4;
-            // 
-            // TxtId
-            // 
-            this.TxtId.Location = new System.Drawing.Point(306, 27);
-            this.TxtId.Name = "TxtId";
-            this.TxtId.Size = new System.Drawing.Size(159, 20);
-            this.TxtId.TabIndex = 3;
-            this.TxtId.Visible = false;
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Location = new System.Drawing.Point(177, 75);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(288, 20);
-            this.TxtNombre.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Descripción";
-            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.GrbDetalle);
+            this.tabPage2.Controls.Add(this.GrbCabecera);
             this.tabPage2.Controls.Add(this.BtnCancelar);
             this.tabPage2.Controls.Add(this.BtnInsertar);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.TxtDescripcion);
-            this.tabPage2.Controls.Add(this.TxtId);
-            this.tabPage2.Controls.Add(this.TxtNombre);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(927, 406);
+            this.tabPage2.Size = new System.Drawing.Size(927, 604);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre (*)";
             // 
             // Seleccionar
             // 
@@ -234,14 +213,257 @@
             this.tabGeneral.Location = new System.Drawing.Point(12, 12);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.SelectedIndex = 0;
-            this.tabGeneral.Size = new System.Drawing.Size(935, 432);
+            this.tabGeneral.Size = new System.Drawing.Size(935, 630);
             this.tabGeneral.TabIndex = 1;
+            // 
+            // GrbCabecera
+            // 
+            this.GrbCabecera.Controls.Add(this.TxtNumero);
+            this.GrbCabecera.Controls.Add(this.label5);
+            this.GrbCabecera.Controls.Add(this.TxtImpuesto);
+            this.GrbCabecera.Controls.Add(this.label4);
+            this.GrbCabecera.Controls.Add(this.textBox4);
+            this.GrbCabecera.Controls.Add(this.TxtSerie);
+            this.GrbCabecera.Controls.Add(this.CboComprobante);
+            this.GrbCabecera.Controls.Add(this.BtnBuscarProveedor);
+            this.GrbCabecera.Controls.Add(this.TxtNombreProveedor);
+            this.GrbCabecera.Controls.Add(this.TxtIdProveedor);
+            this.GrbCabecera.Controls.Add(this.label2);
+            this.GrbCabecera.Controls.Add(this.lblProveedor);
+            this.GrbCabecera.Controls.Add(this.TxtId);
+            this.GrbCabecera.Location = new System.Drawing.Point(15, 21);
+            this.GrbCabecera.Name = "GrbCabecera";
+            this.GrbCabecera.Size = new System.Drawing.Size(728, 137);
+            this.GrbCabecera.TabIndex = 8;
+            this.GrbCabecera.TabStop = false;
+            this.GrbCabecera.Text = "Cabecera";
+            // 
+            // TxtId
+            // 
+            this.TxtId.Location = new System.Drawing.Point(487, 10);
+            this.TxtId.Name = "TxtId";
+            this.TxtId.Size = new System.Drawing.Size(105, 20);
+            this.TxtId.TabIndex = 3;
+            this.TxtId.Visible = false;
+            // 
+            // lblProveedor
+            // 
+            this.lblProveedor.AutoSize = true;
+            this.lblProveedor.Location = new System.Drawing.Point(5, 40);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(66, 13);
+            this.lblProveedor.TabIndex = 4;
+            this.lblProveedor.Text = "Proveedor(*)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Comprobante (*)";
+            // 
+            // TxtIdProveedor
+            // 
+            this.TxtIdProveedor.Enabled = false;
+            this.TxtIdProveedor.Location = new System.Drawing.Point(71, 37);
+            this.TxtIdProveedor.Name = "TxtIdProveedor";
+            this.TxtIdProveedor.Size = new System.Drawing.Size(100, 20);
+            this.TxtIdProveedor.TabIndex = 6;
+            // 
+            // TxtNombreProveedor
+            // 
+            this.TxtNombreProveedor.Enabled = false;
+            this.TxtNombreProveedor.Location = new System.Drawing.Point(187, 37);
+            this.TxtNombreProveedor.Name = "TxtNombreProveedor";
+            this.TxtNombreProveedor.Size = new System.Drawing.Size(224, 20);
+            this.TxtNombreProveedor.TabIndex = 7;
+            // 
+            // BtnBuscarProveedor
+            // 
+            this.BtnBuscarProveedor.Location = new System.Drawing.Point(417, 36);
+            this.BtnBuscarProveedor.Name = "BtnBuscarProveedor";
+            this.BtnBuscarProveedor.Size = new System.Drawing.Size(108, 20);
+            this.BtnBuscarProveedor.TabIndex = 8;
+            this.BtnBuscarProveedor.Text = "Buscar";
+            this.BtnBuscarProveedor.UseVisualStyleBackColor = true;
+            // 
+            // CboComprobante
+            // 
+            this.CboComprobante.FormattingEnabled = true;
+            this.CboComprobante.Items.AddRange(new object[] {
+            "FACTURA",
+            "BOLETA",
+            "TICKET",
+            "NOTA CREDITO"});
+            this.CboComprobante.Location = new System.Drawing.Point(91, 102);
+            this.CboComprobante.Name = "CboComprobante";
+            this.CboComprobante.Size = new System.Drawing.Size(100, 21);
+            this.CboComprobante.TabIndex = 9;
+            this.CboComprobante.Text = "FACTURA";
+            this.CboComprobante.UseWaitCursor = true;
+            // 
+            // TxtSerie
+            // 
+            this.TxtSerie.Location = new System.Drawing.Point(219, 103);
+            this.TxtSerie.Name = "TxtSerie";
+            this.TxtSerie.Size = new System.Drawing.Size(119, 20);
+            this.TxtSerie.TabIndex = 10;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(344, 103);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(110, 20);
+            this.textBox4.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(484, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Impuesto (*)";
+            // 
+            // TxtImpuesto
+            // 
+            this.TxtImpuesto.Location = new System.Drawing.Point(551, 103);
+            this.TxtImpuesto.Name = "TxtImpuesto";
+            this.TxtImpuesto.Size = new System.Drawing.Size(100, 20);
+            this.TxtImpuesto.TabIndex = 13;
+            this.TxtImpuesto.Text = "0.18";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(216, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "SERIE";
+            // 
+            // TxtNumero
+            // 
+            this.TxtNumero.AutoSize = true;
+            this.TxtNumero.Location = new System.Drawing.Point(354, 78);
+            this.TxtNumero.Name = "TxtNumero";
+            this.TxtNumero.Size = new System.Drawing.Size(55, 13);
+            this.TxtNumero.TabIndex = 15;
+            this.TxtNumero.Text = "NUMERO";
+            // 
+            // GrbDetalle
+            // 
+            this.GrbDetalle.Controls.Add(this.label10);
+            this.GrbDetalle.Controls.Add(this.label9);
+            this.GrbDetalle.Controls.Add(this.label8);
+            this.GrbDetalle.Controls.Add(this.TxtTotal);
+            this.GrbDetalle.Controls.Add(this.TxtTotalImpuesto);
+            this.GrbDetalle.Controls.Add(this.TxtSubTotal);
+            this.GrbDetalle.Controls.Add(this.DgvDetalle);
+            this.GrbDetalle.Controls.Add(this.BtnBuscarArticulo);
+            this.GrbDetalle.Controls.Add(this.TxtCodigo);
+            this.GrbDetalle.Controls.Add(this.Articulo);
+            this.GrbDetalle.Location = new System.Drawing.Point(15, 164);
+            this.GrbDetalle.Name = "GrbDetalle";
+            this.GrbDetalle.Size = new System.Drawing.Size(728, 354);
+            this.GrbDetalle.TabIndex = 9;
+            this.GrbDetalle.TabStop = false;
+            this.GrbDetalle.Text = "Detalle";
+            // 
+            // Articulo
+            // 
+            this.Articulo.AutoSize = true;
+            this.Articulo.Location = new System.Drawing.Point(13, 30);
+            this.Articulo.Name = "Articulo";
+            this.Articulo.Size = new System.Drawing.Size(35, 13);
+            this.Articulo.TabIndex = 0;
+            this.Articulo.Text = "label7";
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Location = new System.Drawing.Point(84, 23);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(327, 20);
+            this.TxtCodigo.TabIndex = 1;
+            // 
+            // BtnBuscarArticulo
+            // 
+            this.BtnBuscarArticulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnBuscarArticulo.Location = new System.Drawing.Point(419, 20);
+            this.BtnBuscarArticulo.Name = "BtnBuscarArticulo";
+            this.BtnBuscarArticulo.Size = new System.Drawing.Size(106, 23);
+            this.BtnBuscarArticulo.TabIndex = 2;
+            this.BtnBuscarArticulo.Text = "Buscar";
+            this.BtnBuscarArticulo.UseVisualStyleBackColor = true;
+            // 
+            // DgvDetalle
+            // 
+            this.DgvDetalle.AllowUserToAddRows = false;
+            this.DgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvDetalle.Location = new System.Drawing.Point(16, 58);
+            this.DgvDetalle.Name = "DgvDetalle";
+            this.DgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvDetalle.Size = new System.Drawing.Size(688, 183);
+            this.DgvDetalle.TabIndex = 3;
+            // 
+            // TxtSubTotal
+            // 
+            this.TxtSubTotal.Enabled = false;
+            this.TxtSubTotal.Location = new System.Drawing.Point(583, 247);
+            this.TxtSubTotal.Name = "TxtSubTotal";
+            this.TxtSubTotal.Size = new System.Drawing.Size(121, 20);
+            this.TxtSubTotal.TabIndex = 4;
+            // 
+            // TxtTotalImpuesto
+            // 
+            this.TxtTotalImpuesto.Enabled = false;
+            this.TxtTotalImpuesto.Location = new System.Drawing.Point(583, 273);
+            this.TxtTotalImpuesto.Name = "TxtTotalImpuesto";
+            this.TxtTotalImpuesto.Size = new System.Drawing.Size(121, 20);
+            this.TxtTotalImpuesto.TabIndex = 5;
+            // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Enabled = false;
+            this.TxtTotal.Location = new System.Drawing.Point(583, 299);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(121, 20);
+            this.TxtTotal.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(470, 254);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Sub Total";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(470, 280);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Total Impuesto";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(470, 306);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Total";
             // 
             // FrmIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 467);
+            this.ClientSize = new System.Drawing.Size(1107, 654);
             this.Controls.Add(this.tabGeneral);
             this.Name = "FrmIngreso";
             this.Text = "Ingresos";
@@ -253,6 +475,11 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabGeneral.ResumeLayout(false);
+            this.GrbCabecera.ResumeLayout(false);
+            this.GrbCabecera.PerformLayout();
+            this.GrbDetalle.ResumeLayout(false);
+            this.GrbDetalle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDetalle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -273,10 +500,30 @@
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnInsertar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtDescripcion;
-        private System.Windows.Forms.TextBox TxtId;
-        private System.Windows.Forms.TextBox TxtNombre;
+        private System.Windows.Forms.GroupBox GrbDetalle;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TxtTotal;
+        private System.Windows.Forms.TextBox TxtTotalImpuesto;
+        private System.Windows.Forms.TextBox TxtSubTotal;
+        private System.Windows.Forms.DataGridView DgvDetalle;
+        private System.Windows.Forms.Button BtnBuscarArticulo;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.Label Articulo;
+        private System.Windows.Forms.GroupBox GrbCabecera;
+        private System.Windows.Forms.Label TxtNumero;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TxtImpuesto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtSerie;
+        private System.Windows.Forms.ComboBox CboComprobante;
+        private System.Windows.Forms.Button BtnBuscarProveedor;
+        private System.Windows.Forms.TextBox TxtNombreProveedor;
+        private System.Windows.Forms.TextBox TxtIdProveedor;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblProveedor;
+        private System.Windows.Forms.TextBox TxtId;
     }
 }

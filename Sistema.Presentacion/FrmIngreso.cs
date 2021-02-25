@@ -106,6 +106,7 @@ namespace Sistema.Presentacion
             this.DtDetalle.Columns.Add("articulo", System.Type.GetType("System.String"));
             this.DtDetalle.Columns.Add("cantidad", System.Type.GetType("System.Int32"));
             this.DtDetalle.Columns.Add("precio", System.Type.GetType("System.Decimal"));
+            this.DtDetalle.Columns.Add("importe", System.Type.GetType("System.Decimal"));
 
             //Indicar la fuente de datos de datagridview
             DgvDetalle.DataSource = this.DtDetalle;
@@ -140,6 +141,60 @@ namespace Sistema.Presentacion
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             this.Buscar();
+        }
+
+        private void BtnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            FrmVista_ProveedorIngreso vista = new FrmVista_ProveedorIngreso();
+
+            vista.ShowDialog();
+
+            TxtIdProveedor.Text = Convert.ToString(Variables.IdProveedor);
+            TxtNombreProveedor.Text = Variables.NombreProveedor;
+        }
+
+        private void TxtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                //si la tecla enter es presionada, se hace la consulta enviando el parametro valor
+                if (e.KeyCode == Keys.Enter)
+                {
+                    DataTable Tabla = new DataTable();
+                    Tabla = NArticulo.Buscarcodigo(TxtCodigo.Text.Trim());
+
+                    if (Tabla.Rows.Count<=0)
+                    {
+                        this.MensaError("No existe artículo con ese códgio de barras.");
+                    }
+                    else
+                    {
+                        //agregar detalle
+                        //crear nuevo metodo
+                        this.AgregarDetalle(Convert.ToInt32(Tabla.Rows[0][0]), Convert.ToString(Tabla.Rows[0][1]), Convert.ToString(Tabla.Rows[0][2]),Convert.ToDecimal(Tabla.Rows[0][3]));
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AgregarDetalle(int IdArticulo, string Codigo, string Nombre,decimal Precio)
+        {
+            DataRow Fila = DtDetalle.NewRow();
+            Fila["idarticulo"] = IdArticulo;
+            Fila["codigo"] = Codigo;
+            Fila["articulo"] = Nombre;
+            Fila["Cantidad"] = 1;
+            Fila["precio"] = Precio;
+            Fila["importe"] = Precio;
+            this.DtDetalle.Rows.Add(Fila);
+
         }
     }
 }

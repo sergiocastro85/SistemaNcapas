@@ -202,15 +202,49 @@ namespace Sistema.Presentacion
 
         private void AgregarDetalle(int IdArticulo, string Codigo, string Nombre,decimal Precio)
         {
-            DataRow Fila = DtDetalle.NewRow();
-            Fila["idarticulo"] = IdArticulo;
-            Fila["codigo"] = Codigo;
-            Fila["articulo"] = Nombre;
-            Fila["Cantidad"] = 1;
-            Fila["precio"] = Precio;
-            Fila["importe"] = Precio;
-            this.DtDetalle.Rows.Add(Fila);
+            bool Agregar = true;
 
+            //recorrer todas las filas que se tienen en el gridview dgDetalle
+            foreach(DataRow FilaTem in DtDetalle.Rows)
+            {
+                if (Convert.ToInt32(FilaTem["idarticulo"])==IdArticulo)
+                {
+                    Agregar = false;
+                    this.MensaError("El Articulo ya ha sido agredado");
+                }
+            }
+
+            //si agregar el verdadero me permite agregar
+
+            if (Agregar)
+            {
+                DataRow Fila = DtDetalle.NewRow();
+                Fila["idarticulo"] = IdArticulo;
+                Fila["codigo"] = Codigo;
+                Fila["articulo"] = Nombre;
+                Fila["Cantidad"] = 1;
+                Fila["precio"] = Precio;
+                Fila["importe"] = Precio;
+                this.DtDetalle.Rows.Add(Fila);
+                this.CalcularTotales();
+
+            }
+
+
+
+        }
+
+        private void CalcularTotales()
+        {
+            decimal Total = 0;
+            decimal Subtotal = 0;
+            foreach(DataRow FilaTemp in DtDetalle.Rows)
+            {
+                Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+            }
+            Subtotal = Total / (1 + Convert.ToDecimal(TxtImpuesto.Text));
+            TxtTotal.Text = Total.ToString("#0.00#");
+            TxtTotalImpuesto.Text = (Total - Subtotal).ToString("#0.00#");
         }
 
         private void BtnVerArticulos_Click(object sender, EventArgs e)
@@ -252,6 +286,23 @@ namespace Sistema.Presentacion
             Precio = Convert.ToDecimal(DgvArticulos.CurrentRow.Cells["Precio_Venta"].Value);
             //se llama al metodo agregar detalle
             this.AgregarDetalle(IdArticulo, Codigo, Nombre, Precio);
+        }
+
+        private void DgvDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            //declaramos un objeto llamado fila para capturar el indice de la celda que se está modificando
+            DataRow Fila = (DataRow)DtDetalle.Rows[e.RowIndex];
+
+            decimal Precio;
+            int Cantidad;
+
+            Precio =Convert.ToDecimal (Fila["precio"]);
+            Cantidad = Convert.ToInt32(Fila["cantidad"]);
+
+            Fila["importe"] = Precio * Cantidad;
+
+            this.CalcularTotales();
+
         }
     }
 }

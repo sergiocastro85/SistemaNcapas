@@ -214,6 +214,7 @@
             this.DgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvDetalle.Size = new System.Drawing.Size(979, 183);
             this.DgvDetalle.TabIndex = 3;
+            this.DgvDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDetalle_CellEndEdit);
             // 
             // BtnVerArticulos
             // 

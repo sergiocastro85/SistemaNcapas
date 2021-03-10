@@ -132,6 +132,22 @@ namespace Sistema.Presentacion
 
         }
 
+        private void FormatoArticulos()
+        {
+            DgvArticulos.Columns[1].Visible = false;
+            DgvArticulos.Columns[2].Width = 100;
+            DgvArticulos.Columns[2].HeaderText = "Categoría";
+            DgvArticulos.Columns[3].Width = 100;
+            DgvArticulos.Columns[3].HeaderText = "Código";
+            DgvArticulos.Columns[4].Width = 150;
+            DgvArticulos.Columns[5].Width = 100;
+            DgvArticulos.Columns[5].HeaderText = "Precio Venta";
+            DgvArticulos.Columns[6].Width = 60;
+            DgvArticulos.Columns[7].Width = 200;
+            DgvArticulos.Columns[7].HeaderText = "Descripción";
+            DgvArticulos.Columns[8].Width = 100;
+        }
+
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
             this.Listar();
@@ -195,6 +211,47 @@ namespace Sistema.Presentacion
             Fila["importe"] = Precio;
             this.DtDetalle.Rows.Add(Fila);
 
+        }
+
+        private void BtnVerArticulos_Click(object sender, EventArgs e)
+        {
+            PanelArticulos.Visible = true;
+        }
+
+        private void BtnCerrarArticulos_Click(object sender, EventArgs e)
+        {
+            PanelArticulos.Visible = false;
+        }
+
+        private void BtnFiltrarArticulo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               //llenar el datagrid con lo que hay en la clase narticulo
+                DgvArticulos.DataSource = NArticulo.Buscar(TxtBuscarArticulo.Text);
+                //llamamos el metodo formato articulos
+                this.FormatoArticulos();
+                LblTotalArticulos.Text = "Total Registros: " + Convert.ToString(DgvArticulos.Rows.Count);
+
+           }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void DgvArticulos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int IdArticulo;
+            string Codigo, Nombre;
+            decimal Precio;
+            IdArticulo = Convert.ToInt32(DgvArticulos.CurrentRow.Cells["ID"].Value);
+            Codigo = Convert.ToString(DgvArticulos.CurrentRow.Cells["Codigo"].Value);
+            Nombre = Convert.ToString(DgvArticulos.CurrentRow.Cells["Nombre"].Value);
+            Precio = Convert.ToDecimal(DgvArticulos.CurrentRow.Cells["Precio_Venta"].Value);
+            //se llama al metodo agregar detalle
+            this.AgregarDetalle(IdArticulo, Codigo, Nombre, Precio);
         }
     }
 }

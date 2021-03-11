@@ -238,10 +238,20 @@ namespace Sistema.Presentacion
         {
             decimal Total = 0;
             decimal Subtotal = 0;
-            foreach(DataRow FilaTemp in DtDetalle.Rows)
+
+            if (DgvDetalle.Rows.Count == 0)
             {
-                Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+                Total = 0;
             }
+            else
+            {
+                foreach (DataRow FilaTemp in DtDetalle.Rows)
+                {
+                    Total = Total + Convert.ToDecimal(FilaTemp["importe"]);
+                }
+
+            }
+
             Subtotal = Total / (1 + Convert.ToDecimal(TxtImpuesto.Text));
             TxtTotal.Text = Total.ToString("#0.00#");
             TxtTotalImpuesto.Text = (Total - Subtotal).ToString("#0.00#");
@@ -303,6 +313,11 @@ namespace Sistema.Presentacion
 
             this.CalcularTotales();
 
+        }
+
+        private void DgvDetalle_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            this.CalcularTotales();
         }
     }
 }

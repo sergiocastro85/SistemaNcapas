@@ -363,5 +363,10 @@ namespace Sistema.Presentacion
             }
 
         }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
+        }
     }
 }

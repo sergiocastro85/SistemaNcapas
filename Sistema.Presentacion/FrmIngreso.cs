@@ -261,7 +261,6 @@ namespace Sistema.Presentacion
             }
 
             Subtotal = Total / (1 + Convert.ToDecimal(TxtImpuesto.Text));
-            TxtSubTotal.Text = Subtotal.ToString("#0.00#");
             TxtTotal.Text = Total.ToString("#0.00#");
             TxtTotalImpuesto.Text = (Total - Subtotal).ToString("#0.00#");
         }
@@ -363,39 +362,6 @@ namespace Sistema.Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
 
-        }
-
-        private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //anclar al fuente de datos, enviarle el parametro id de la celda seleccionada
-                DgvMostrarDetalle.DataSource = NIngreso.ListarDetalle(Convert.ToInt32(DgvListado.CurrentRow.Cells["ID"].Value));
-                decimal Total, Subtotal;
-                decimal Impuesto = Convert.ToDecimal(DgvListado.CurrentRow.Cells["Impuesto"].Value);
-                Total = Convert.ToDecimal(DgvListado.CurrentRow.Cells["Total"].Value);
-                Subtotal = Total / (1 + Impuesto);
-                TxtSubtotalD.Text = Subtotal.ToString("#0.00#");
-                TxtTotalD.Text = Total.ToString("#0.00#");
-                TxtTotalImpuestoD.Text = (Total - Subtotal).ToString("#0.00#");
-                PnMostrar.Visible = true;
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void BtnCerrarDetalle_Click(object sender, EventArgs e)
-        {
-            PnMostrar.Visible = false;
-        }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Limpiar();
-            tabGeneral.SelectedIndex = 0;
         }
     }
 }

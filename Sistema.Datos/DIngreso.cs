@@ -73,38 +73,6 @@ namespace Sistema.Datos
 
         }
 
-        public DataTable ListarDetalle(int Id)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection Sqlcon = new SqlConnection();
-            try
-            {
-
-                Sqlcon = Conexion.getInstacia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("ingreso_listar_detalle", Sqlcon);
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.Add("@idingreso", SqlDbType.Int).Value = Id;
-                Sqlcon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-                throw ex;
-            }
-            finally
-            {
-                if (Sqlcon.State == ConnectionState.Open)
-                    Sqlcon.Close();
-            }
-
-
-        }
-
         public string Insertar(Ingreso obj)
         {
             string Rpta = "";

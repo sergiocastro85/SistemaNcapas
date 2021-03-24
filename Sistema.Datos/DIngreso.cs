@@ -92,7 +92,8 @@ namespace Sistema.Datos
                 //tipo de dato estructurado
                 Comando.Parameters.Add("@detalle", SqlDbType.Structured).Value = obj.Detalles;
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "NO SE PUDO INGRESAR EL REGISTRO";
+                Comando.ExecuteNonQuery();
+                Rpta =  "OK" ;
 
 
             }

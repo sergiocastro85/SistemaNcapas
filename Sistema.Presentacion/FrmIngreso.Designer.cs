@@ -57,7 +57,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TxtImpuesto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtNumeroComprobante = new System.Windows.Forms.TextBox();
             this.TxtSerie = new System.Windows.Forms.TextBox();
             this.CboComprobante = new System.Windows.Forms.ComboBox();
             this.BtnBuscarProveedor = new System.Windows.Forms.Button();
@@ -108,6 +108,7 @@
             this.BtnInsertar.TabIndex = 6;
             this.BtnInsertar.Text = "Insertar";
             this.BtnInsertar.UseVisualStyleBackColor = true;
+            this.BtnInsertar.Click += new System.EventHandler(this.BtnInsertar_Click);
             // 
             // label3
             // 
@@ -326,7 +327,7 @@
             this.GrbCabecera.Controls.Add(this.label5);
             this.GrbCabecera.Controls.Add(this.TxtImpuesto);
             this.GrbCabecera.Controls.Add(this.label4);
-            this.GrbCabecera.Controls.Add(this.textBox4);
+            this.GrbCabecera.Controls.Add(this.TxtNumeroComprobante);
             this.GrbCabecera.Controls.Add(this.TxtSerie);
             this.GrbCabecera.Controls.Add(this.CboComprobante);
             this.GrbCabecera.Controls.Add(this.BtnBuscarProveedor);
@@ -377,12 +378,12 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Impuesto (*)";
             // 
-            // textBox4
+            // TxtNumeroComprobante
             // 
-            this.textBox4.Location = new System.Drawing.Point(344, 102);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(134, 20);
-            this.textBox4.TabIndex = 11;
+            this.TxtNumeroComprobante.Location = new System.Drawing.Point(344, 102);
+            this.TxtNumeroComprobante.Name = "TxtNumeroComprobante";
+            this.TxtNumeroComprobante.Size = new System.Drawing.Size(134, 20);
+            this.TxtNumeroComprobante.TabIndex = 11;
             // 
             // TxtSerie
             // 
@@ -610,7 +611,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtImpuesto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtNumeroComprobante;
         private System.Windows.Forms.TextBox TxtSerie;
         private System.Windows.Forms.ComboBox CboComprobante;
         private System.Windows.Forms.Button BtnBuscarProveedor;

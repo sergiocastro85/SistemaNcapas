@@ -80,8 +80,16 @@ namespace Sistema.Presentacion
         {
             TxtBuscar.Clear();
             TxtId.Clear();
-            BtnInsertar.Visible = true;
-            ErrorIcono.Clear();
+            TxtCodigo.Clear();
+            TxtIdProveedor.Clear();
+            TxtSerie.Clear();
+            TxtNumeroComprobante.Clear();
+            DtDetalle.Clear();
+            TxtSubTotal.Text = "0.000";
+            TxtTotalImpuesto.Text = "0.000";
+            TxtTotal.Text = "0.000";
+
+
 
             DgvListado.Columns[0].Visible = false;
             BtnAnular.Visible = false;
@@ -318,6 +326,42 @@ namespace Sistema.Presentacion
         private void DgvDetalle_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             this.CalcularTotales();
+        }
+
+        private void BtnInsertar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                //validar el idproveedor, validar el impuesto, número de comprobante, que contenga al menos 1 fila, de lo contrario muestre un error
+                if (TxtIdProveedor.Text == string.Empty || TxtImpuesto.Text==string.Empty || TxtNumeroComprobante.Text==string.Empty || DtDetalle.Rows.Count==0)
+                {
+                    this.MensaError("Falta ingresar algunos datos , seran remarcados .");
+                    ErrorIcono.SetError(TxtIdProveedor, "Seleccione algun proveedor.");
+                    ErrorIcono.SetError(TxtImpuesto, "Ingrese un Impuesto.");
+                    ErrorIcono.SetError(TxtNumeroComprobante, "Ingres un número de comprobante.");
+                    ErrorIcono.SetError(DgvDetalle, "Ingres al menos un detalle.");
+                }
+                else
+                {
+                    Rpta = NIngreso.Insertar(Convert.ToInt32(TxtIdProveedor.Text),Variables.IdUsuario,CboComprobante.Text,TxtSerie.Text.Trim(),TxtNumeroComprobante.Text.Trim(), Convert.ToDecimal(TxtImpuesto.Text),Convert.ToDecimal(TxtTotal.Text),DtDetalle);
+                    if (Rpta.Equals("OK"))
+                    {
+                        this.MensajeOK("Se inserto de forma correcta el registro");
+                        this.Limpiar();
+                        this.Listar();
+                    }
+                    else
+                    {
+                        this.MensaError(Rpta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
         }
     }
 }

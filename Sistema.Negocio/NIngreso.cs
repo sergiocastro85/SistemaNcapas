@@ -24,7 +24,13 @@ namespace Sistema.Negocio
             DIngreso Datos = new DIngreso();
             return Datos.Buscar(Valor);
         }
-       
+
+        public static DataTable ListarDetalle(int Idingreso)
+        {
+            DIngreso Datos = new DIngreso();
+            return Datos.ListarDetalles(Idingreso);
+        }
+
         public static string Insertar(int IdProveedor, int IdUsuario,string TipoComprobante,string SerieComprobante,string NumComprobante,decimal Impuesto,decimal Total, DataTable Detalles)
         {
             DIngreso Datos = new DIngreso();

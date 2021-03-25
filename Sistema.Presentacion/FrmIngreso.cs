@@ -367,6 +367,37 @@ namespace Sistema.Presentacion
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Limpiar();
+            tabGeneral.SelectedIndex = 0;
+        }
+
+        private void DgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DgvMostrarDetalles.DataSource = NIngreso.ListarDetalle(Convert.ToInt32(DgvListado.CurrentRow.Cells["ID"].Value));
+
+                decimal Total, Subtotal;
+                decimal Impuesto = Convert.ToDecimal(DgvListado.CurrentRow.Cells["Impuesto"].Value);
+                Total =Convert.ToDecimal (DgvListado.CurrentRow.Cells["Total"].Value);
+                Subtotal = Total / (1 + Impuesto);
+
+                TxtSubtotalD.Text = Subtotal.ToString("#0.00#");
+                TxtTotalD.Text = Total.ToString("#0.00#");
+                TxtImpuestoD.Text = (Total - Subtotal).ToString("#0.00#");
+
+                PnMostrarDestalles.Visible = true;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnCerrarD_Click(object sender, EventArgs e)
+        {
+            PnMostrarDestalles.Visible = false;
         }
     }
 }

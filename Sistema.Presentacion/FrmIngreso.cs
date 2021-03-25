@@ -399,5 +399,77 @@ namespace Sistema.Presentacion
         {
             PnMostrarDestalles.Visible = false;
         }
+
+        private void DgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //el objeto e, sale del evento private void DgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            if (e.ColumnIndex == DgvListado.Columns["Seleccionar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)DgvListado.Rows[e.RowIndex].Cells["Seleccionar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+
+            }
+        }
+
+        private void ChkSeleccionar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkSeleccionar.Checked)
+            {
+                DgvListado.Columns[0].Visible = true;
+                BtnAnular.Visible = true;
+      
+            }
+            else
+            {
+                DgvListado.Columns[0].Visible = false;
+                BtnAnular.Visible = false;
+
+            }
+        }
+
+        private void BtnAnular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente deseas Anular el (los) Registro (s) ?", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string Rpta = "";
+
+                    foreach (DataGridViewRow row in DgvListado.Rows)
+                    {
+                        //si la celda actual que estoy recorriendo en la posicion 0 es true
+                        //indica que se desea Eliminar
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            //Establesco el valor que voy a eliminar y lo almaceno en la variable Codigo
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            Rpta = NIngreso.Anular(Codigo);
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOK("Se Anuló el registro" + Convert.ToString(row.Cells[6].Value)+"-"+Convert.ToString(row.Cells[7].Value));
+                            }
+                            else
+                            {
+                                this.MensaError(Rpta);
+                            }
+                        }
+
+
+                    }
+                }
+                this.Listar();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }

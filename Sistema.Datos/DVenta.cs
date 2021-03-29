@@ -82,7 +82,7 @@ namespace Sistema.Datos
             {
 
                 Sqlcon = Conexion.getInstacia().CrearConexion();
-                SqlCommand Comando = new SqlCommand("[venta_listar_detalle", Sqlcon);
+                SqlCommand Comando = new SqlCommand("venta_listar_detalle", Sqlcon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.Add("@idventa", SqlDbType.Int).Value = IdIngreso;
                 Sqlcon.Open();

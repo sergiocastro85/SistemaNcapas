@@ -129,6 +129,7 @@
             this.BtnCerrarD.TabIndex = 1;
             this.BtnCerrarD.Text = "x";
             this.BtnCerrarD.UseVisualStyleBackColor = true;
+            this.BtnCerrarD.Click += new System.EventHandler(this.BtnCerrarD_Click);
             // 
             // Seleccionar
             // 
@@ -149,7 +150,7 @@
             this.PnMostrarDestalles.Controls.Add(this.BtnCerrarD);
             this.PnMostrarDestalles.Location = new System.Drawing.Point(194, 65);
             this.PnMostrarDestalles.Name = "PnMostrarDestalles";
-            this.PnMostrarDestalles.Size = new System.Drawing.Size(688, 290);
+            this.PnMostrarDestalles.Size = new System.Drawing.Size(711, 313);
             this.PnMostrarDestalles.TabIndex = 7;
             this.PnMostrarDestalles.Visible = false;
             // 
@@ -220,6 +221,7 @@
             this.BtnAnular.TabIndex = 6;
             this.BtnAnular.Text = "Anular";
             this.BtnAnular.UseVisualStyleBackColor = true;
+            this.BtnAnular.Click += new System.EventHandler(this.BtnAnular_Click);
             // 
             // ChkSeleccionar
             // 
@@ -230,6 +232,7 @@
             this.ChkSeleccionar.TabIndex = 4;
             this.ChkSeleccionar.Text = "Seleccionar";
             this.ChkSeleccionar.UseVisualStyleBackColor = true;
+            this.ChkSeleccionar.CheckedChanged += new System.EventHandler(this.ChkSeleccionar_CheckedChanged);
             // 
             // BtnBuscar
             // 
@@ -271,6 +274,8 @@
             this.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListado.Size = new System.Drawing.Size(899, 291);
             this.DgvListado.TabIndex = 0;
+            this.DgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentClick);
+            this.DgvListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellDoubleClick);
             // 
             // tabPage1
             // 
@@ -479,6 +484,7 @@
             this.DgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvDetalle.Size = new System.Drawing.Size(979, 183);
             this.DgvDetalle.TabIndex = 3;
+            this.DgvDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDetalle_CellEndEdit);
             // 
             // BtnVerArticulos
             // 
@@ -629,6 +635,7 @@
             this.BtnCancelar.TabIndex = 7;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnInsertar
             // 
@@ -638,6 +645,7 @@
             this.BtnInsertar.TabIndex = 6;
             this.BtnInsertar.Text = "Insertar";
             this.BtnInsertar.UseVisualStyleBackColor = true;
+            this.BtnInsertar.Click += new System.EventHandler(this.BtnInsertar_Click);
             // 
             // label3
             // 

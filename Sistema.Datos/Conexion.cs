@@ -21,7 +21,7 @@ namespace Sistema.Datos
         private Conexion()
         {
             this.Base = "dbsistema";
-            this.Servidor = "PRC05612\\SQLEXPRESS";
+            this.Servidor = "PRC00006\\SQLEXPRESS";
             this.Usuario = "se";
             this.Clave = "123456";
             this.Seguridad = true;

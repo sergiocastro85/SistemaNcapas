@@ -235,5 +235,12 @@ namespace Sistema.Presentacion
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void corresponsalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Corresponsales frm = new Corresponsales();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Corresponsales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Corresponsales.Designer.cs">
+      <DependentUpon>Corresponsales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Variables.cs" />
+    <EmbeddedResource Include="Corresponsales.resx">
+      <DependentUpon>Corresponsales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmArticulo.resx">
       <DependentUpon>frmArticulo.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +219,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sistema.Entidades\Sistema.Entidades.csproj">
+      <Project>{CE54246B-1667-4F17-96BC-EC6C136FA8AF}</Project>
+      <Name>Sistema.Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sistema.Negocio\Sistema.Negocio.csproj">
       <Project>{5230976b-e63c-42b1-b914-f7bd0b1ca9a5}</Project>
       <Name>Sistema.Negocio</Name>

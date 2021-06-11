@@ -68,6 +68,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.StBarraInferior = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.corresponsalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -96,7 +97,8 @@
             // 
             this.MnuAlmacen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categgoriasToolStripMenuItem,
-            this.articulosToolStripMenuItem});
+            this.articulosToolStripMenuItem,
+            this.corresponsalesToolStripMenuItem});
             this.MnuAlmacen.Name = "MnuAlmacen";
             this.MnuAlmacen.Size = new System.Drawing.Size(66, 20);
             this.MnuAlmacen.Text = "Almacen";
@@ -104,14 +106,14 @@
             // categgoriasToolStripMenuItem
             // 
             this.categgoriasToolStripMenuItem.Name = "categgoriasToolStripMenuItem";
-            this.categgoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.categgoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categgoriasToolStripMenuItem.Text = "Cate&gorías";
             this.categgoriasToolStripMenuItem.Click += new System.EventHandler(this.categgoriasToolStripMenuItem_Click);
             // 
             // articulosToolStripMenuItem
             // 
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "&Articulos";
             this.articulosToolStripMenuItem.Click += new System.EventHandler(this.articulosToolStripMenuItem_Click);
             // 
@@ -150,14 +152,14 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.clientesToolStripMenuItem.Text = "Clien&tes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem1
             // 
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.ventasToolStripMenuItem1.Text = "&Ventas";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.ventasToolStripMenuItem1_Click);
             // 
@@ -379,6 +381,13 @@
             this.StBarraInferior.Size = new System.Drawing.Size(167, 17);
             this.StBarraInferior.Text = "Desarrollado por Sergio Castro";
             // 
+            // corresponsalesToolStripMenuItem
+            // 
+            this.corresponsalesToolStripMenuItem.Name = "corresponsalesToolStripMenuItem";
+            this.corresponsalesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.corresponsalesToolStripMenuItem.Text = "Corresponsales";
+            this.corresponsalesToolStripMenuItem.Click += new System.EventHandler(this.corresponsalesToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,6 +454,7 @@
         private System.Windows.Forms.ToolStripMenuItem MnuSalir;
         private System.Windows.Forms.ToolStripButton TsCompras;
         private System.Windows.Forms.ToolStripButton TsVentas;
+        private System.Windows.Forms.ToolStripMenuItem corresponsalesToolStripMenuItem;
     }
 }
 

@@ -35,7 +35,7 @@ namespace Sistema.Presentacion
             // CboCorresponsales
             // 
             this.CboCorresponsales.FormattingEnabled = true;
-            this.CboCorresponsales.Location = new System.Drawing.Point(24, 25);
+            this.CboCorresponsales.Location = new System.Drawing.Point(21, 29);
             this.CboCorresponsales.Name = "CboCorresponsales";
             this.CboCorresponsales.Size = new System.Drawing.Size(181, 21);
             this.CboCorresponsales.TabIndex = 0;

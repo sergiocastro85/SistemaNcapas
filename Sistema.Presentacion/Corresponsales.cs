@@ -21,8 +21,8 @@ namespace Sistema.Presentacion
         public void CargarCorresponsal()
         {
             CboCorresponsales.DataSource = NPac.ListadoCorresponsal();
+            CboCorresponsales.DisplayMember = "Nombre";
             CboCorresponsales.ValueMember = "idPac";
-            CboCorresponsales.DisplayMember = "strNombre";
         }
 
         private void Corresponsales_Load(object sender, EventArgs e)

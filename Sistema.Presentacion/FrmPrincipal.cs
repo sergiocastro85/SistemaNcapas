@@ -238,7 +238,7 @@ namespace Sistema.Presentacion
 
         private void corresponsalesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Corresponsales frm = new Corresponsales();
+            RegistroComisionesPac frm = new RegistroComisionesPac();
             frm.MdiParent = this;
             frm.Show();
         }

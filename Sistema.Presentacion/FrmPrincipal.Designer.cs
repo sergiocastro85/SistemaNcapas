@@ -34,6 +34,8 @@
             this.MnuAlmacen = new System.Windows.Forms.ToolStripMenuItem();
             this.categgoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.corresponsalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arqueoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuIngresos = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +70,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.StBarraInferior = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.corresponsalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -98,7 +100,9 @@
             this.MnuAlmacen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categgoriasToolStripMenuItem,
             this.articulosToolStripMenuItem,
-            this.corresponsalesToolStripMenuItem});
+            this.corresponsalesToolStripMenuItem,
+            this.arqueoToolStripMenuItem,
+            this.invToolStripMenuItem});
             this.MnuAlmacen.Name = "MnuAlmacen";
             this.MnuAlmacen.Size = new System.Drawing.Size(66, 20);
             this.MnuAlmacen.Text = "Almacen";
@@ -116,6 +120,20 @@
             this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "&Articulos";
             this.articulosToolStripMenuItem.Click += new System.EventHandler(this.articulosToolStripMenuItem_Click);
+            // 
+            // corresponsalesToolStripMenuItem
+            // 
+            this.corresponsalesToolStripMenuItem.Name = "corresponsalesToolStripMenuItem";
+            this.corresponsalesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.corresponsalesToolStripMenuItem.Text = "Corresponsales";
+            this.corresponsalesToolStripMenuItem.Click += new System.EventHandler(this.corresponsalesToolStripMenuItem_Click);
+            // 
+            // arqueoToolStripMenuItem
+            // 
+            this.arqueoToolStripMenuItem.Name = "arqueoToolStripMenuItem";
+            this.arqueoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.arqueoToolStripMenuItem.Text = "Arqueo";
+            this.arqueoToolStripMenuItem.Click += new System.EventHandler(this.arqueoToolStripMenuItem_Click);
             // 
             // MnuIngresos
             // 
@@ -381,12 +399,12 @@
             this.StBarraInferior.Size = new System.Drawing.Size(167, 17);
             this.StBarraInferior.Text = "Desarrollado por Sergio Castro";
             // 
-            // corresponsalesToolStripMenuItem
+            // invToolStripMenuItem
             // 
-            this.corresponsalesToolStripMenuItem.Name = "corresponsalesToolStripMenuItem";
-            this.corresponsalesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.corresponsalesToolStripMenuItem.Text = "Corresponsales";
-            this.corresponsalesToolStripMenuItem.Click += new System.EventHandler(this.corresponsalesToolStripMenuItem_Click);
+            this.invToolStripMenuItem.Name = "invToolStripMenuItem";
+            this.invToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invToolStripMenuItem.Text = "Inventario";
+            this.invToolStripMenuItem.Click += new System.EventHandler(this.invToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -455,6 +473,8 @@
         private System.Windows.Forms.ToolStripButton TsCompras;
         private System.Windows.Forms.ToolStripButton TsVentas;
         private System.Windows.Forms.ToolStripMenuItem corresponsalesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arqueoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invToolStripMenuItem;
     }
 }
 

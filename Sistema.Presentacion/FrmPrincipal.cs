@@ -242,5 +242,19 @@ namespace Sistema.Presentacion
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void arqueoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArqueo frm = new FrmArqueo();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void invToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInventario frm = new FrmInventario();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

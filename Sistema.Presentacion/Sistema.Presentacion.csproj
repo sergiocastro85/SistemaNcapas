@@ -36,6 +36,9 @@
     <Reference Include="BarcodeStandard, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.2.2\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
     </Reference>
+    <Reference Include="Infragistics4.Shared.v11.2, Version=11.2.20112.1010, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.Misc.v11.2, Version=11.2.20112.1010, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.v11.2, Version=11.2.20112.1010, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -62,6 +65,7 @@
     <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,6 +82,12 @@
     </Compile>
     <Compile Include="Corresponsales.Designer.cs">
       <DependentUpon>Corresponsales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArqueo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArqueo.Designer.cs">
+      <DependentUpon>FrmArqueo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmArticulo.cs">
       <SubType>Form</SubType>
@@ -96,6 +106,12 @@
     </Compile>
     <Compile Include="FrmIngreso.Designer.cs">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventario.Designer.cs">
+      <DependentUpon>FrmInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -164,6 +180,9 @@
     <EmbeddedResource Include="Corresponsales.resx">
       <DependentUpon>Corresponsales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmArqueo.resx">
+      <DependentUpon>FrmArqueo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmArticulo.resx">
       <DependentUpon>frmArticulo.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngreso.resx">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventario.resx">
+      <DependentUpon>FrmInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -200,6 +222,7 @@
     <EmbeddedResource Include="FrmVista_ProveedorIngreso.resx">
       <DependentUpon>FrmVista_ProveedorIngreso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

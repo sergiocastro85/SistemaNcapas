@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Articulo.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="Inventario.cs" />
     <Compile Include="Pac.cs" />
     <Compile Include="RegistroComision.cs" />
     <Compile Include="Transaccion.cs" />

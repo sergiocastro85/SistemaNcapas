@@ -256,5 +256,12 @@ namespace Sistema.Presentacion
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes.Form1 ReporteInventario = new Reportes.Form1();
+
+            ReporteInventario.ShowDialog();
+        }
     }
 }

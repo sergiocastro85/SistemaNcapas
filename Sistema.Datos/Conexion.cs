@@ -22,6 +22,7 @@ namespace Sistema.Datos
         {
             this.Base = "dbsistema";
             this.Servidor = "PRC00006\\SQLEXPRESS";
+            //this.Servidor = "EQUIPO3\\SQLEXPRESS";
             this.Usuario = "se";
             this.Clave = "123456";
             this.Seguridad = true;

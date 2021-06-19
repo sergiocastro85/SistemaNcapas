@@ -57,6 +57,10 @@
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
@@ -66,6 +70,7 @@
       <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +87,11 @@
     </Compile>
     <Compile Include="Corresponsales.Designer.cs">
       <DependentUpon>Corresponsales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datos.xsd</DependentUpon>
     </Compile>
     <Compile Include="FrmArqueo.cs">
       <SubType>Form</SubType>
@@ -137,6 +147,11 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DssSistema.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DssSistema.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +189,12 @@
     </Compile>
     <Compile Include="RegistroComisionesPac.Designer.cs">
       <DependentUpon>RegistroComisionesPac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Variables.cs" />
@@ -236,7 +257,23 @@
     <EmbeddedResource Include="RegistroComisionesPac.resx">
       <DependentUpon>RegistroComisionesPac.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <None Include="Datos.xsc">
+      <DependentUpon>Datos.xsd</DependentUpon>
+    </None>
+    <None Include="Datos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Datos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datos.xss">
+      <DependentUpon>Datos.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Sistema.Entidades.Inventario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -261,6 +298,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DssSistema.xsc">
+      <DependentUpon>DssSistema.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DssSistema.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DssSistema.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DssSistema.xss">
+      <DependentUpon>DssSistema.xsd</DependentUpon>
+    </None>
     <None Include="Resources\compra_m.png" />
   </ItemGroup>
   <ItemGroup>

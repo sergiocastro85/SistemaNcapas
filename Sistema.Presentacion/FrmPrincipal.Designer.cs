@@ -36,6 +36,7 @@
             this.articulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.corresponsalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arqueoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuIngresos = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.StBarraInferior = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.invToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -102,7 +103,8 @@
             this.articulosToolStripMenuItem,
             this.corresponsalesToolStripMenuItem,
             this.arqueoToolStripMenuItem,
-            this.invToolStripMenuItem});
+            this.invToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.MnuAlmacen.Name = "MnuAlmacen";
             this.MnuAlmacen.Size = new System.Drawing.Size(66, 20);
             this.MnuAlmacen.Text = "Almacen";
@@ -134,6 +136,13 @@
             this.arqueoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arqueoToolStripMenuItem.Text = "Arqueo";
             this.arqueoToolStripMenuItem.Click += new System.EventHandler(this.arqueoToolStripMenuItem_Click);
+            // 
+            // invToolStripMenuItem
+            // 
+            this.invToolStripMenuItem.Name = "invToolStripMenuItem";
+            this.invToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invToolStripMenuItem.Text = "Inventario";
+            this.invToolStripMenuItem.Click += new System.EventHandler(this.invToolStripMenuItem_Click);
             // 
             // MnuIngresos
             // 
@@ -399,12 +408,12 @@
             this.StBarraInferior.Size = new System.Drawing.Size(167, 17);
             this.StBarraInferior.Text = "Desarrollado por Sergio Castro";
             // 
-            // invToolStripMenuItem
+            // reportesToolStripMenuItem
             // 
-            this.invToolStripMenuItem.Name = "invToolStripMenuItem";
-            this.invToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.invToolStripMenuItem.Text = "Inventario";
-            this.invToolStripMenuItem.Click += new System.EventHandler(this.invToolStripMenuItem_Click);
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -475,6 +484,7 @@
         private System.Windows.Forms.ToolStripMenuItem corresponsalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arqueoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }
 

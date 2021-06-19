@@ -66,6 +66,7 @@
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.tabGeneral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnReportes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicImagen)).BeginInit();
@@ -423,6 +424,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnReportes);
             this.tabPage1.Controls.Add(this.BtnEliminar);
             this.tabPage1.Controls.Add(this.BtnDesactivar);
             this.tabPage1.Controls.Add(this.BtnActivar);
@@ -438,6 +440,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BtnReportes
+            // 
+            this.BtnReportes.Location = new System.Drawing.Point(602, 16);
+            this.BtnReportes.Name = "BtnReportes";
+            this.BtnReportes.Size = new System.Drawing.Size(75, 20);
+            this.BtnReportes.TabIndex = 8;
+            this.BtnReportes.Text = "Reportes";
+            this.BtnReportes.UseVisualStyleBackColor = true;
+            this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
             // 
             // frmArticulo
             // 
@@ -499,5 +511,6 @@
         private System.Windows.Forms.TextBox txtPrecioVenta;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button BtnReportes;
     }
 }

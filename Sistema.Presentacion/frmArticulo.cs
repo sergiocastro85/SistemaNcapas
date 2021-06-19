@@ -507,6 +507,13 @@ namespace Sistema.Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void BtnReportes_Click(object sender, EventArgs e)
+        {
+            Reportes.Form1 ReporteInventario = new Reportes.Form1();
+
+            ReporteInventario.ShowDialog();
+        }
     }
     
     
